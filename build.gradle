@@ -3,8 +3,9 @@ plugins {
     id 'java'
 }
 
-bootJar {
-    mainClassName = 'limeJotto.App'
+jar {
+    baseName = 'limej'
+    version =  '0.5.0'
 }
 
 apply plugin: 'io.spring.dependency-management'
