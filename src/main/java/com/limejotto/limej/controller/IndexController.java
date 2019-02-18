@@ -16,4 +16,13 @@ public class IndexController {
     {
         return "index";
     }
+
+    @RequestMapping("/game")
+    public String game(Model model){
+        return "game";
+    }
+    @RequestMapping("/register")
+    public String register(Model model){
+        return "register";
+    }
 }
