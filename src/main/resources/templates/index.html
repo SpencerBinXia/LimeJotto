@@ -21,6 +21,8 @@
   <!-- Custom styles for this template -->
   <link href="css/one-page-wonder.css" rel="stylesheet">
 
+  <script src="js/loginModal.js" ></script>
+
 </head>
 
 <body>
@@ -35,12 +37,33 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Log In</a>
+            <button id="loginBtn" onclick="login()" >Log In</button>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <div id="loginModal" class="modal">
+    <!-- Modal content -->
+    <div class="login-content">
+      <div class="login-header">
+        <span class="close" onclick="spanClick()" >&times;</span>
+        Enter your username and password:
+      </div>
+      <div class="login-body">
+        <form>
+          Username:<br>
+          <input type="text" name="username"><br>
+          Password:<br>
+          <input type="text" name="password">
+        </form>
+      </div>
+      <div class="login-footer">
+        <button id="submitBtn" onclick="" >Submit</button>
+      </div>
+    </div>
+  </div>
 
   <header class="masthead text-center text-white">
     <div class="masthead-content">
