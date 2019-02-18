@@ -18,6 +18,11 @@ h6 {
   font-weight: 800 !important;
 }
 
+.title-image {
+  height: 75%;
+  width: 75%;
+}
+
 .btn-xl {
   text-transform: uppercase;
   padding: 1.5rem 3rem;
@@ -59,8 +64,8 @@ header.masthead {
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-  background: -webkit-gradient(linear, left bottom, left top, from(#57ff27), to(#040002));
-  background: linear-gradient(0deg, #18ff2a 0%, #090005 100%);
+  background: -webkit-gradient(linear, left bottom, left top, from(#b3ff00), to(#040002));
+  background: linear-gradient(0deg, #b3ff00 0%, #090005 100%);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
@@ -84,8 +89,8 @@ header.masthead .bg-circle {
   z-index: 0;
   position: absolute;
   border-radius: 100%;
-  background: -webkit-gradient(linear, left bottom, left top, from(#22ee50), to(#090400));
-  background: linear-gradient(0deg, #1aee2b 0%, #0f0600 100%);
+  background: -webkit-gradient(linear, left bottom, left top, from(#9fee0e), to(#090400));
+  background: linear-gradient(0deg, #b3ff00 0%, #0f0600 100%);
 }
 
 header.masthead .bg-circle-1 {
