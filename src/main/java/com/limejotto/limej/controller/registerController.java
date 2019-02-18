@@ -25,7 +25,7 @@ public class registerController {
     }
     /*
         This method takes in a RegInfo obj which is filled with a username and password as per the form  data
-        in register.html, this method registers the User then returns a template that uses thymeleaf to
+        in register.html, this method registers the User then returns profile.html that uses thymeleaf to
         display the username
      */
     @RequestMapping(method=RequestMethod.POST)
