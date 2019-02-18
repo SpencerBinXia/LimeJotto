@@ -27,7 +27,7 @@ public class userRepo {
 
     public user findByName(String username)
     {
-        String findUser ="SELECT * FROM User WHERE user_name='" + username + "';";
+        String findUser ="SELECT * FROM user WHERE user_name='" + username + "';";
         user tempuser = new user();
         try
         {
@@ -48,7 +48,7 @@ public class userRepo {
 
     public void regUser(user newUser)
     {
-        jdbc.update("INSERT INTO User(user_name, user_password)" + "VALUES(?,?)", newUser.getUsername(), newUser.getPassword());
+        jdbc.update("INSERT INTO user(user_name, user_password)" + "VALUES(?,?)", newUser.getUsername(), newUser.getPassword());
     }
 
 }

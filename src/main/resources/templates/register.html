@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
 
 <head>
 
@@ -28,7 +29,8 @@
 
 <header class="registration">
     <div>
-        <form method="get" action="http://localhost:8080/submitRegistration" id="form1">
+        <!-- <form method="get" action="http://localhost:8080/submitRegistration" id="form1"> -->
+        <form action="register" th:action="@{/register}" th:object="${reginfo}" method="post">
             <div id="content">
                 <table width="640" border="0" cellspacing="0" cellpadding="0" align="center">
                     <tbody>
@@ -44,12 +46,12 @@
                                     <tr>
                                         <td>&nbsp; Username <br>
                                              </td>
-                                        <td><input type="text" id="userName" name="userName"></td>
+                                        <td><input type="text" id="userName" name="userName" th:field="*{username}"></td>
 
                                     </tr>
                                     <tr>
                                         <td>Password</td>
-                                        <td><input type="text" id="password" name="password" maxlength="20"></td>
+                                        <td><input type="text" id="password" name="password" th:field="*{password}"></td>
                                     </tr>
                                     </tbody>
                                 </table>

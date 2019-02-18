@@ -14,14 +14,15 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/register")
 public class registerController {
 
-    @GetMapping
-    public String home(Model model)
-    {
-        return "register";
-    }
-
+    //@GetMapping
     @Autowired
     private loginRegisterService service;
+
+    @RequestMapping(method=RequestMethod.GET)
+    public String displayRegister(Model model) {
+        model.addAttribute("reginfo", new regInfo());
+        return "register";
+    }
 
     @RequestMapping(method=RequestMethod.POST)
     public String registerUser(@ModelAttribute regInfo reginfo, HttpSession session)
