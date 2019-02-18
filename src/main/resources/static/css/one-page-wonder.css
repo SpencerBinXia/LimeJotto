@@ -235,3 +235,16 @@ header.masthead .bg-circle-4 {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(15, 6, 0, 0.5);
   box-shadow: 0 0 0 0.2rem rgba(17, 7, 0, 0.5);
 }
+
+.registration {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 7rem;
+  background: -webkit-gradient(linear, left bottom, left top, from(#57ff27), to(#040002));
+  background: linear-gradient(0deg, #18ff2a 0%, #090005 100%);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+  color: white;
+}
