@@ -7,8 +7,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import com.limejotto.limej.service.loginRegisterService;
-import com.limejotto.limej.object.user;
-import com.limejotto.limej.object.regInfo;
+import com.limejotto.limej.object.RegInfo;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -21,12 +20,16 @@ public class registerController {
 
     @RequestMapping(method=RequestMethod.GET)
     public String displayRegister(Model model) {
-        model.addAttribute("reginfo", new regInfo());
+        model.addAttribute("reginfo", new RegInfo());
         return "register";
     }
-
+    /*
+        This method takes in a RegInfo obj which is filled with a username and password as per the form  data
+        in register.html, this method registers the User then returns a template that uses thymeleaf to
+        display the username
+     */
     @RequestMapping(method=RequestMethod.POST)
-    public String registerUser(@ModelAttribute regInfo reginfo, HttpSession session, ModelMap model)
+    public String registerUser(@ModelAttribute RegInfo reginfo, HttpSession session, ModelMap model)
     {
         service.registerUser(reginfo, session);
         model.addAttribute("message","Welcome "+reginfo.getUsername());

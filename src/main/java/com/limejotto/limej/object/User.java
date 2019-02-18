@@ -1,6 +1,6 @@
 package com.limejotto.limej.object;
 
-public class regInfo {
+public class User {
     private String username;
     private String password;
 
