@@ -29,18 +29,5 @@ public class IndexController {
     public String game(Model model){
         return "game";
     }
-    //@RequestMapping("/register")
-    //public String register(Model model){
-       // return "register";
-    //}
-    @RequestMapping("submitRegistration")
-    public String submitRegistration(@RequestParam("userName") String userName , @RequestParam("password") String password, Model model){
-        if (userName!=null) {
-            model.addAttribute("message", "Welcome "+userName);
-        }
-        if (password!= null) {
-            model.addAttribute("password", password);
-        }
-        return "profile";
-    }
+
 }

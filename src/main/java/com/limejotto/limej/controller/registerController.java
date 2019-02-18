@@ -3,6 +3,7 @@ package com.limejotto.limej.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import com.limejotto.limej.service.loginRegisterService;
@@ -25,9 +26,10 @@ public class registerController {
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    public String registerUser(@ModelAttribute regInfo reginfo, HttpSession session)
+    public String registerUser(@ModelAttribute regInfo reginfo, HttpSession session, ModelMap model)
     {
         service.registerUser(reginfo, session);
-        return "redirect:/submitRegistration";
+        model.addAttribute("message","Welcome "+reginfo.getUsername());
+        return "profile";
     }
 }
