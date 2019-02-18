@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class IndexController {
 
-    @RequestMapping(method= RequestMethod.GET)
+    @GetMapping
     public String home(Model model)
     {
         return "index";
