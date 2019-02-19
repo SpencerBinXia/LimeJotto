@@ -33,6 +33,6 @@ public class registerController {
     {
         service.registerUser(reginfo, session);
         model.addAttribute("message","Welcome "+reginfo.getUsername());
-        return "profile";
+        return "game";
     }
 }
