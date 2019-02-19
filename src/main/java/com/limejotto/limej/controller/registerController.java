@@ -23,16 +23,5 @@ public class registerController {
         model.addAttribute("reginfo", new RegInfo());
         return "register";
     }
-    /*
-        This method takes in a RegInfo obj which is filled with a username and password as per the form  data
-        in register.html, this method registers the User then returns profile.html that uses thymeleaf to
-        display the username
-     */
-    @RequestMapping(method=RequestMethod.POST)
-    public String registerUser(@ModelAttribute RegInfo reginfo, HttpSession session, ModelMap model)
-    {
-        service.registerUser(reginfo, session);
-        model.addAttribute("message","Welcome "+reginfo.getUsername());
-        return "game";
-    }
+
 }
