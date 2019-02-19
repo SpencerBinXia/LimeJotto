@@ -18,6 +18,25 @@ h6 {
   font-weight: 800 !important;
 }
 
+#loginBtn {
+    border: 0;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: white;
+}
+#submitBtn {
+    border: 0;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: white;
+}
+
 /* login modal */
 .modal {
     display: none;
@@ -32,18 +51,17 @@ h6 {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
     width: 80%;
 }
 .close {
-    color: #000000;
+    color: #ffffff;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 .close:hover,
 .close:focus {
-    color: #ffffff;
+    color: #ee0979;
     text-decoration: none;
     cursor: pointer;
 }
@@ -51,6 +69,8 @@ h6 {
     padding: 2px 16px;
     background-color: #000000;
     color: white;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
     font-size: 23px;
     width: 500px;
     float: right;
@@ -72,15 +92,14 @@ h6 {
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
     /*width: 80%;*/
     width: 500px;
     float: right;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
+    animation-name: topdown;
     animation-duration: 0.4s
 }
-@keyframes animatetop {
+@keyframes topdown {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
 }
@@ -241,10 +260,16 @@ header.masthead .bg-circle-4 {
   overflow: hidden;
   padding-bottom: 7rem;
   background: -webkit-gradient(linear, left bottom, left top, from(#57ff27), to(#040002));
-  background: linear-gradient(0deg, #18ff2a 0%, #090005 100%);
+  background: linear-gradient(0deg, #57ff27 0%, #090005 100%);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
   background-size: cover;
-  color: white;
+}
+.registration-content{
+    z-index: 1;
+    color: white;
+}
+.pageMainArea {
+    /*z-index: 2000;*/
 }
