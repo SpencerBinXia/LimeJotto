@@ -26,16 +26,25 @@
 
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+        <a class="navbar-brand" onclick = "location.href" href="/index">Lime Jotto</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
 
 <header class="registration">
-    <div>
+    <div class="registration-content">
+        <br><br><br><br><br><br>
         <!-- <form method="get" action="http://localhost:8080/submitRegistration" id="form1"> -->
         <form action="register" th:action="@{/register}" th:object="${reginfo}" method="post">
             <div id="content">
                 <table width="640" border="0" cellspacing="0" cellpadding="0" align="center">
                     <tbody>
                     <tr>
-                        <td valign="top" class="pageMainArea"><h1>Registration</h1>
+                        <td valign="top" class="pageMainArea"><h1 class="masthead-heading mb-0">Registration</h1>
                             <span id="lblheader">Complete this application and click the Submit button.</span> <br>
                             <br>
                             <br>
@@ -44,13 +53,14 @@
                                 <table border="0" cellspacing="0" cellpadding="3" style="width: 332px">
                                     <tbody>
                                     <tr>
-                                        <td>&nbsp; Username <br>
+                                        <p>&nbsp;</p>
+                                        <td>Username:<br>
                                              </td>
                                         <td><input type="text" id="userName" name="userName" th:field="*{username}"></td>
 
                                     </tr>
                                     <tr>
-                                        <td>Password</td>
+                                        <td>Password:</td>
                                         <td><input type="text" id="password" name="password" th:field="*{password}"></td>
                                     </tr>
                                     </tbody>
@@ -69,7 +79,10 @@
             </div>
         </form>
     </div>
-
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
 </header>
 
 
