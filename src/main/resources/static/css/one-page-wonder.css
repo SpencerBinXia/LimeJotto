@@ -18,6 +18,11 @@ h6 {
   font-weight: 800 !important;
 }
 
+.logo-image {
+    height: 5%;
+    width: 5%;
+}
+
 #loginBtn {
     border: 0;
     background-color: transparent;
