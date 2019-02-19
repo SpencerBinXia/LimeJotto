@@ -14,7 +14,7 @@ public class Player {
         return word;
     }
 
-    public ArrayList<String>[] getLettersGuessedCorrect() {
+    public ArrayList<String> getLettersGuessedCorrect() {
         return lettersGuessedCorrect;
     }
 
