@@ -24,8 +24,4 @@ public class IndexController {
         when the mapping /game is made we return game.html
      */
 
-    @RequestMapping("/game")
-    public String game(Model model){
-        return "game";
-    }
 }
