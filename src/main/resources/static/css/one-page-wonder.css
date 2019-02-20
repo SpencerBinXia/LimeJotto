@@ -42,6 +42,7 @@ h6 {
     color: white;
 }
 
+
 /* login modal */
 .modal {
     display: none;
@@ -102,7 +103,7 @@ h6 {
     float: right;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     animation-name: topdown;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
 }
 @keyframes topdown {
     from {top: -300px; opacity: 0}
@@ -145,6 +146,8 @@ h6 {
 }
 
 .navbar-custom .navbar-nav .nav-item .nav-link {
+    border: 0;
+    background-color: transparent;
   text-transform: uppercase;
   font-size: 0.8rem;
   font-weight: 700;
