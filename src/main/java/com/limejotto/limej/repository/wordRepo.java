@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.limejotto.limej.object.Word;
+
 /**
  * User repository which queries the database for information.
  */
@@ -21,21 +23,28 @@ public class wordRepo {
 
     public boolean findWord(String word)
     {
+        Word tempword =new Word();
         String wordQuery ="SELECT * FROM Wordbank WHERE Word='" + word + "';";
         try
         {
             jdbc.queryForObject(wordQuery, new RowMapper() {
                 public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
                     System.out.println(rs.getString(1));
-                    return true;
+                    tempword.setWord(rs.getString(1));
+                    return tempword;
                 }
             });
         }
         catch (Exception e)
         {
-            System.out.println("Word not found");
+        }
+        if (tempword.getWord() != null && tempword.getWord().equals(word))
+        {
+            return true;
+        }
+        else
+        {
             return false;
         }
-        return false;
     }
 }

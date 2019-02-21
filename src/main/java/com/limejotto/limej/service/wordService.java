@@ -15,13 +15,15 @@ public class wordService {
 
     public boolean wordLookup(String word)
     {
-        if (wrepo.findWord(word) == true)
+        boolean wrepoResult = wrepo.findWord(word);
+        if (wrepoResult == true)
         {
             return true;
         }
-        else
+        else if (wrepoResult == false)
         {
             return false;
         }
+        return false;
     }
 }

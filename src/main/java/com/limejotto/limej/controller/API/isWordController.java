@@ -1,4 +1,6 @@
-package com.limejotto.limej.controller;
+package com.limejotto.limej.controller.API;
+
+import org.json.simple.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,16 +22,21 @@ public class isWordController {
     wordService wservice;
 
     @RequestMapping(method=RequestMethod.POST, produces= "application/json")
-    public String wordLookup(@RequestBody Word userWord)
+    public JSONObject wordLookup(@RequestBody Word userWord)
     {
         System.out.println(userWord.getWord());
+        JSONObject message = new JSONObject();
         if (wservice.wordLookup(userWord.getWord()) == true)
         {
-            return "This is a word";
+            message.put("word", "This is a word");
+            return message;
+
         }
-        else
+        else if (wservice.wordLookup(userWord.getWord()) == false)
         {
-            return "This is false";
+            message.put("word", "This is false");
+            return message;
         }
+        return null;
     }
 }

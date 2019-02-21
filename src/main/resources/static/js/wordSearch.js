@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-    var userWord = {word: "buddy"};
+    var userWord = {word: "fgszd"};
     $.ajax({
         type: "POST",
         url: "/isWord",
