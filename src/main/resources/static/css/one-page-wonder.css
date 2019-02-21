@@ -300,11 +300,7 @@ header.game{
     background-size: cover;
 }
 
-#welcome{
-    padding-bottom: 3em;
-    font-size: 30px;
-    color:white;
-}
+
 #humanHeader{
     color:white;
 }
@@ -313,7 +309,7 @@ header.game{
 }
 #canvasContainer{
     width: 400px;
-    height: 400px;
+    height: 675px;
     overflow: auto;
     border: 1px solid;
 }
