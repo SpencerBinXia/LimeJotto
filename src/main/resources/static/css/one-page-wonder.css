@@ -305,3 +305,12 @@ header.game{
 #humanLbl{
     color:white;
 }
+#canvasContainer{
+    width: 400px;
+    height: 400px;
+    overflow: auto;
+    border: 1px solid;
+}
+#humanCanvas{
+    background-color: white;
+}
