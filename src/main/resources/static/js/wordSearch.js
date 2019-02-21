@@ -1,5 +1,28 @@
 $(document).ready(function()
 {
+    var userWord = {word: "buddy"};
+    $.ajax({
+        type: "POST",
+        url: "/isWord",
+        contentType: "application/JSON",
+        dataType: "json",
+        data: JSON.stringify(userWord),
+        cache: false,
+        success: function(wordResult)
+        {
+            console.log(wordResult);
+        },
+        error: function(e){
+            console.log("Failure", e);
+        }
+    })
+
+});
+
+
+/*
+$(document).ready(function()
+{
     var wordbank;
     $.ajax({
         type: "GET",
@@ -8,9 +31,7 @@ $(document).ready(function()
         success: function(wordData)
         {
             console.log(wordData);
-            console.log(wordData.body);
-            console.log(wordData.status);
-            wordbank = wordData;
+            console.log(wordData.results.data[1]);
 
         },
         error: function(e){
@@ -23,4 +44,5 @@ $(document).ready(function()
     function wordTest()
     {console.log(wordbank);}
 });
+*/
 

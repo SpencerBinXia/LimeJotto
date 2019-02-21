@@ -13,16 +13,16 @@ import com.limejotto.limej.repository.userRepo;
 public class loginRegisterService {
 
     @Autowired
-    private userRepo repo;
+    private userRepo urepo;
 
     public boolean registerUser(RegInfo reg, HttpSession session) {
-        User existing = repo.findByName(reg.getUsername());
+        User existing = urepo.findByName(reg.getUsername());
         if (existing == null) {
             User newUser = new User();
             newUser.setUsername(reg.getUsername());
             newUser.setPassword(reg.getPassword());
-            repo.regUser(newUser);
-            session.setAttribute("currentUser", newUser);
+            urepo.regUser(newUser);
+            //session.setAttribute("currentUser", newUser);
             return true;
         }
         return false;

@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/game")
 public class gameController {
 
-    //@GetMapping
     @Autowired
     private loginRegisterService service;
 
