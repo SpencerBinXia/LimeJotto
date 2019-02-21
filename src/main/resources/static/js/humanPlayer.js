@@ -5,7 +5,7 @@ function addWordToCanvas() {
     //Setting up the canvas and the text to be black
     var canvas = document.getElementById("humanCanvas");
     var ctx = canvas.getContext("2d");
-    ctx.font = "12px Comic Sans MS";
+    ctx.font = "20px Comic Sans MS";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
     // Get the text from the text box and the length of the text
