@@ -53,12 +53,16 @@
 
 
 
-<header class="masthead text-center text-white">
-    <h1 id = "welcome" th:text="${message}" style="top:0" ></h1>
+<header class="game">
+    <div style="width:500px">
+    <h1 id = "welcome" th:text="${message}" ></h1>
+    <h1 id="humanHeader" >Human Player</h1>
+
     <canvas id ="humanCanvas" width=" 400" height="400" style="background-color: white"></canvas>
     <h3 id ="humanLbl">Enter your word</h3>
     <input id = "humanTxt" type = "text" name = "humanTxt">
     <button id ="humanBtn" name = "humanBtn">Submit</button>
+    </div>
 
 </header>
 
