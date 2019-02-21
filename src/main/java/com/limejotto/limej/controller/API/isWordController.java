@@ -28,13 +28,13 @@ public class isWordController {
         JSONObject message = new JSONObject();
         if (wservice.wordLookup(userWord.getWord()) == true)
         {
-            message.put("word", "This is a word");
+            message.put("word", "1");
             return message;
 
         }
         else if (wservice.wordLookup(userWord.getWord()) == false)
         {
-            message.put("word", "This is false");
+            message.put("word", "0");
             return message;
         }
         return null;

@@ -1,23 +1,30 @@
-$(document).ready(function()
-{
-    var userWord = {word: "fgszd"};
-    $.ajax({
-        type: "POST",
-        url: "/isWord",
-        contentType: "application/JSON",
-        dataType: "json",
-        data: JSON.stringify(userWord),
-        cache: false,
-        success: function(wordResult)
-        {
-            console.log(wordResult);
-        },
-        error: function(e){
-            console.log("Failure", e);
-        }
-    })
-
-});
+/*
+ * Function that takes a word as user input on game.html and sends an AJAX POST request to the server,
+ * checking if the input word is found inside the database. On success, the word will be added
+ * to the canvas. On failure, the word is not added and the user will be alerted.
+ */
+function wordLookup(wordInput) {
+        var userWord = {word: wordInput};
+        //var userWord = {word: "fgszd"};
+        $.ajax({
+            type: "POST",
+            url: "/isWord",
+            contentType: "application/JSON",
+            dataType: "json",
+            data: JSON.stringify(userWord),
+            cache: false,
+            success: function (wordResult) {
+                console.log(wordResult.word[0]);
+                if (wordResult.word[0] === "0")
+                {
+                    alert("This is not a valid word.")
+                }
+            },
+            error: function (e) {
+                console.log("Failure", e);
+            }
+        })
+    }
 
 
 /*

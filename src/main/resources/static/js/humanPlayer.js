@@ -10,6 +10,8 @@ function addWordToCanvas() {
     ctx.textAlign = "center";
     // Get the text from the text box and the length of the text
     var text = $('#humanTxt').val();
+    //This should be the other way around. addWordToCanvas() should be called from wordLookup
+    wordLookup(text);
     var length = text.length;
     // only accept words of length 5 or more
     if(length == 5) {
