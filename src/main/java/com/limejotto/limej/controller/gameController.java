@@ -27,7 +27,14 @@ public class gameController {
     public String registerUser(@ModelAttribute RegInfo reginfo, HttpSession session, ModelMap model)
     {
         service.registerUser(reginfo, session);
+        session.setAttribute("username", reginfo.getUsername());
         model.addAttribute("message","Welcome "+reginfo.getUsername());
+        return "game";
+    }
+
+    @RequestMapping(method=RequestMethod.GET)
+    public String sendUser(HttpSession session)
+    {
         return "game";
     }
 
