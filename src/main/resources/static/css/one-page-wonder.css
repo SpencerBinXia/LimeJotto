@@ -154,7 +154,7 @@ h6 {
 .navbar-custom .navbar-nav .nav-item .nav-link {
     border: 0;
     background-color: transparent;
-  text-transform: uppercase;
+    text-transform: uppercase;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.1rem;
@@ -286,4 +286,37 @@ header.masthead .bg-circle-4 {
 }
 .pageMainArea {
     /*z-index: 2000;*/
+}
+header.game{
+    position: relative;
+    overflow: hidden;
+    padding-top: 4rem;
+    padding-bottom: 7rem;
+    background: -webkit-gradient(linear, left bottom, left top, from(#57ff27), to(#040002));
+    background: linear-gradient(0deg,#57ff27 0%, #090005 100%);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+#welcome{
+    padding-bottom: 3em;
+    font-size: 30px;
+    color:white;
+}
+#humanHeader{
+    color:white;
+}
+#humanLbl{
+    color:white;
+}
+#canvasContainer{
+    width: 400px;
+    height: 400px;
+    overflow: auto;
+    border: 1px solid;
+}
+#humanCanvas{
+    background-color: white;
 }
