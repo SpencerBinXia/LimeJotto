@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.limejotto.limej.service.wordService;
 import com.limejotto.limej.object.Word;
 
+
 //import javax.servlet.http.HttpSession;
 
 /*
@@ -23,21 +24,12 @@ public class cpuGuessController {
     wordService wservice;
 
     @RequestMapping(method=RequestMethod.POST, produces= "application/json")
-    public JSONObject wordLookup(@RequestBody String queryParam)
+    public JSONObject wordLookup(@RequestBody String regexQuery)
     {
-        System.out.println(queryParam);
-        JSONObject message = new JSONObject();
-        if (wservice.wordLookup(queryParam))
-        {
-            message.put("word", "1");
-            return message;
-
-        }
-        else if (!wservice.wordLookup(queryParam))
-        {
-            message.put("word", "0");
-            return message;
-        }
-        return null;
+        Word guess = wservice.guessWordService(regexQuery);
+        System.out.println(guess);
+        JSONObject cpuGuess = new JSONObject();
+        cpuGuess.put("cpuGuess", guess);
+        return cpuGuess;
     }
 }
