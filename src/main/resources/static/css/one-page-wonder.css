@@ -18,6 +18,23 @@ h6 {
   font-weight: 800 !important;
 }
 
+.alphabetTable {
+    margin-top: 5rem;
+}
+.column {
+    float: left;
+    width: 33.33%;
+}
+.game {
+    margin-right: 6%;
+    margin-left: 6%;
+    margin-top: -8rem;
+}
+.game:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
 .profile-header {
     padding-left: 25%;
