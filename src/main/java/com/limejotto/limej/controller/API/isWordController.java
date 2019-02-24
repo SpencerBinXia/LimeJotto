@@ -13,6 +13,9 @@ import com.limejotto.limej.object.Word;
 
 //import javax.servlet.http.HttpSession;
 
+/*
+ * Controller for word lookup in the database. Responds with 1 if the word is found, and 0 if the word is not found.
+ */
 @Controller
 @RequestMapping("/isWord")
 @ResponseBody
@@ -26,13 +29,13 @@ public class isWordController {
     {
         System.out.println(userWord.getWord());
         JSONObject message = new JSONObject();
-        if (wservice.wordLookup(userWord.getWord()) == true)
+        if (wservice.wordLookup(userWord.getWord()))
         {
             message.put("word", "1");
             return message;
 
         }
-        else if (wservice.wordLookup(userWord.getWord()) == false)
+        else if (!wservice.wordLookup(userWord.getWord()))
         {
             message.put("word", "0");
             return message;
