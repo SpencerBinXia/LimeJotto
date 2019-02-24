@@ -1,6 +1,8 @@
 var initial = 0;
 var currentx = 30;
-var currenty =40;
+var currenty = 40;
+var userWord;
+var userGuesses = [];
 
 function addWordToCanvas(text) {
     //Setting up the canvas and the text to be black
@@ -15,13 +17,18 @@ function addWordToCanvas(text) {
     // if it is the first time entering it is an intital word
     if (initial == 0) {
         ctx.fillText("YOUR WORD: " + text, xposition, currenty);
+        //User's word defined
+        userWord = text;
     } else {
         // else it is a guess
         ctx.fillText("Guess: " + text, xposition, currenty);
+        //Append to array of guesses
+        userGuesses.push(text);
     }
     // logistics for scrolling
     currentx += 0;
     currenty += 40;
     initial = 1;
-    }
-
+    console.log(userWord);
+    console.log(userGuesses);
+}
