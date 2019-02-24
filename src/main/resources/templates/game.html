@@ -57,18 +57,28 @@
 
 
 <header class="game">
-    <div style="width:500px">
         <h1 id="humanHeader" >Human Player</h1>
-        <div id = "canvasContainer">
-            <canvas id="humanCanvas"  width="5000px" height="5000px"></canvas>
+        <div class = "canvasContainer">
+            <canvas class="playerCanvas"  width="5000px" height="5000px"></canvas>
         </div>
+        <div id ="superContainer">
+            <h1 id="cpuHeader" >CPU</h1>
+        <div id = "cpuContainer">
+            <canvas id="cpuCanvas"  width="5000px" height="5000px"></canvas>
+        </div>
+        </div>
+
+
     <h3 id ="humanLbl">Enter your word</h3>
     <input id = "humanTxt" type = "text" name = "humanTxt">
     <button id ="humanBtn" name = "humanBtn" onclick="addWordToCanvas()">Submit</button>
-    </div>
+
+
+
+
+
 
 </header>
-
 
 
 

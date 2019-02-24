@@ -294,19 +294,36 @@ header.game{
     background-size: cover;
 }
 
-
 #humanHeader{
     color:white;
 }
 #humanLbl{
     color:white;
 }
-#canvasContainer{
+.canvasContainer{
+    width: 400px;
+    height: 675px;
+    overflow: auto;
+    border: 1px solid;
+    float: left;
+}
+.playerCanvas{
+    background-color: white;
+}
+#cpuContainer{
     width: 400px;
     height: 675px;
     overflow: auto;
     border: 1px solid;
 }
-#humanCanvas{
+#cpuCanvas{
     background-color: white;
 }
+#cpuHeader{
+    color:white;
+}
+#superContainer{
+    padding-left: 90em;
+}
+
+
