@@ -8,8 +8,7 @@ var userWord;
 var userGuesses = [];
 var greenLetters = [];
 var redLetters = [];
-
-var compWord = "tiger"; // TEMP VAR
+var compWord;
 
 function compareLetter(guess, compWord, index) {
     var i;
@@ -72,6 +71,7 @@ function addWordToCanvas(text) {
         ctx.fillText("GUESS: " + text + " - " + numLetters, xposition, currenty);
         if(text.localeCompare(compWord) == 0){
             // you win
+            currenty += 40;
             ctx.fillText("YOU WIN!", xposition, currenty);
         }
     }
@@ -108,11 +108,11 @@ function updateCPUInitial() {
         ctx.font = "20px Comic Sans MS";
         ctx.fillStyle = "black";
         ctx.textAlign = "center";
-        var text = req.responseText;
+        compWord = req.responseText;
 
         var xposition = currentx + length;
         xposition = xposition * 4;
-        ctx.fillText("CPU WORD: " + text, xposition, cpuY);
+        ctx.fillText("CPU WORD: " + compWord, xposition, cpuY);
 
     }
     cpuX += 0;
