@@ -59,13 +59,16 @@
 
 
 
+
+
+
 <header class="masthead">
     <div class="game">
         <!--Player controls area-->
         <div class="column" style="width:500px">
             <h2 id="humanHeader" th:text="${session.username}" ></h2>
-            <div id = "canvasContainer">
-                <canvas id="humanCanvas"  width="5000px" height="5000px"></canvas>
+            <div class = "canvasContainer">
+                <canvas class="playerCanvas"  width="5000px" height="5000px"></canvas>
             </div>
             <h5 id ="humanLbl">Enter your word:</h5>
             <input id = "humanTxt" type = "text" name = "humanTxt">
@@ -116,9 +119,21 @@
         </div>
         <!--AI area-->
         <div class="column">
+            <div id ="superContainer">
+                <h1 id="cpuHeader" >CPU</h1>
+                <div id = "cpuContainer">
+                    <canvas id="cpuCanvas"  width="5000px" height="5000px"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 </header>
+
+
+
+
+
+
 
 
 
