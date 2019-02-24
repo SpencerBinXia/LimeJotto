@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.limejotto.limej.repository.wordRepo;
 
+import com.limejotto.limej.object.Word;
+
+
 @Service
 public class wordService {
 
@@ -25,5 +28,16 @@ public class wordService {
             return false;
         }
         return false;
+    }
+
+    public String randomWord() {
+        String wRepoResult = wrepo.randomInitialWord();
+        return wRepoResult;
+    }
+
+
+    public Word guessWordService(String regex)
+    {
+        return wrepo.guessWord(regex);
     }
 }

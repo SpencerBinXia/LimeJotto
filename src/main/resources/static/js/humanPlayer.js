@@ -1,7 +1,9 @@
 var initial = 0;
 var currentx = 30;
-var currenty = 40;
-
+var currenty =40;
+var cpuX = 30;
+var cpuY =40;
+var req;
 var userWord;
 var userGuesses = [];
 var greenLetters = [];
@@ -43,12 +45,14 @@ function addWordToCanvas(text) {
     // if it is the first time entering it is an intital word
     if (initial == 0) {
         ctx.fillText("YOUR WORD: " + text, xposition, currenty);
+        cpuSelectWord();
         //User's word defined
         userWord = text;
-    } else {
+    }else {
         // else it is a guess
         // Append to array of guesses
         userGuesses.push(text);
+
         // Compare each letter with letters in computer word
         var numLetters = 0;
         var i;
@@ -82,3 +86,38 @@ function addWordToCanvas(text) {
     console.log(greenLetters);
     console.log(redLetters);
 }
+
+/*
+ This function makes an ajax request to select a random word from the db
+ */
+function cpuSelectWord(){
+    var url = "/initialWord";
+    req = new XMLHttpRequest();
+    req.open("GET",url,true);
+    req.onreadystatechange = updateCPUInitial;
+    req.send(null);
+}
+/*
+ this function updates the canvas for the cpu
+ */
+function updateCPUInitial() {
+    if (req.readyState == 4 && req.status == 200) {
+        //Setting up the canvas and the text to be black
+        var canvas = document.getElementById("cpuCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.font = "20px Comic Sans MS";
+        ctx.fillStyle = "black";
+        ctx.textAlign = "center";
+        var text = req.responseText;
+
+        var xposition = currentx + length;
+        xposition = xposition * 4;
+        ctx.fillText("CPU WORD: " + text, xposition, cpuY);
+
+    }
+    cpuX += 0;
+    cpuY += 40;
+}
+
+
+
