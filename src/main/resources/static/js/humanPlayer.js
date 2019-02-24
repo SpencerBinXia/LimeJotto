@@ -23,5 +23,5 @@ function addWordToCanvas(text) {
     currentx += 0;
     currenty += 40;
     initial = 1;
-    }
+}
 

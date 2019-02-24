@@ -59,21 +59,24 @@
 
 
 
+
+
+
 <header class="masthead">
     <div class="game">
         <!--Player controls area-->
         <div class="column" style="width:500px">
             <h2 id="humanHeader" th:text="${session.username}" ></h2>
-            <div id = "canvasContainer">
-                <canvas id="humanCanvas"  width="5000px" height="5000px"></canvas>
+            <div class = "canvasContainer">
+                <canvas id="humanCanvas" class="playerCanvas"  width="5000px" height="5000px"></canvas>
             </div>
             <h5 id ="humanLbl">Enter your word:</h5>
             <input id = "humanTxt" type = "text" name = "humanTxt">
-            <button id ="humanBtn" name = "humanBtn" onclick="addWordToCanvas()">Submit</button>
+            <button id ="humanBtn" name = "humanBtn" onclick="wordLookup()">Submit</button>
         </div>
         <!--Alphabet-->
         <div class="column">
-            <table class="alphabetTable" style="background-color: white; width:100%">
+            <table class="alphabetTable">
                 <tr>
                     <td class="text-center"><h5 class="letter" onclick="changeColor(this)">A</h5></td>
                     <td class="text-center"><h5 class="letter" onclick="changeColor(this)">B</h5></td>
@@ -116,9 +119,21 @@
         </div>
         <!--AI area-->
         <div class="column">
+            <div id ="superContainer" style="float: right">
+                <h2 id="cpuHeader" style="text-align: right" >Computer</h2>
+                <div id = "cpuContainer">
+                    <canvas id="cpuCanvas"  width="5000px" height="5000px"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 </header>
+
+
+
+
+
+
 
 
 
