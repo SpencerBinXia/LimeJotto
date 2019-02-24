@@ -21,6 +21,7 @@ public class wordRepo {
     @Autowired
     JdbcTemplate jdbc;
 
+
     public boolean findWord(String word)
     {
         Word tempword =new Word();
@@ -45,8 +46,8 @@ public class wordRepo {
     }
 
     private void queryForWord(Word tempword, String wordQuery) {
-        try
-        {
+
+        try {
             jdbc.queryForObject(wordQuery, new RowMapper<Word>() {
                 public Word mapRow(ResultSet rs, int rowNum) throws SQLException {
                     System.out.println(rs.getString(1));
@@ -54,10 +55,30 @@ public class wordRepo {
                     return tempword;
                 }
             });
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
         }
     }
 
+    public Word guessWord(String regex) {
+        Word tempword = new Word();
+        String guessQuery = "SELECT Word FROM Wordbank WHERE (Word REGEXP " + regex + ") ORDER BY RAND() LIMIT 1";
+        queryForWord(tempword, guessQuery);
+        return tempword;
+    }
+
+    /**
+    public List<Word> guessWord(String regex) {
+        String guessQuery = "SELECT Word FROM Wordbank WHERE (Word REGEXP " + regex + ")";
+        List<Map<String, Object>> rows = jdbc.queryForList(guessQuery);
+        List<Word> cpuWords = new ArrayList<Word>();
+        rows = jdbc.queryForList(guessQuery);
+        for (Map row : rows) {
+            Word tempword = new Word();
+            tempword.setWord((String) row.get("Word"));
+            cpuWords.add(tempword);
+        }
+        return cpuWords;
+    }
+     **/
 }
+

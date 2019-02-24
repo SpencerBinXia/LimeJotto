@@ -4,6 +4,9 @@ var currenty =40;
 var cpuX = 30;
 var cpuY =40;
 var req;
+var userWord;
+var userGuesses = [];
+
 
 function addWordToCanvas(text) {
     //Setting up the canvas and the text to be black
@@ -19,10 +22,14 @@ function addWordToCanvas(text) {
     if (initial == 0) {
         ctx.fillText("YOUR WORD: " + text, xposition, currenty);
         cpuSelectWord();
-    } else {
+    }else {
         // else it is a guess
         ctx.fillText("Guess: " + text, xposition, currenty);
-        //cpuGuessWord();
+        //Append to array of guesses
+        //User's word defined
+        userWord = text;
+        userGuesses.push(text);
+
     }
     // logistics for scrolling
     currentx += 0;
@@ -37,13 +44,13 @@ function addWordToCanvas(text) {
         var url = "/initialWord";
         req = new XMLHttpRequest();
         req.open("GET",url,true);
-        req.onreadystatechange = updateCPUInital;
+        req.onreadystatechange = updateCPUInitial;
         req.send(null);
     }
     /*
         this function updates the canvas for the cpu
      */
-    function updateCPUInital(){
+    function updateCPUInitial(){
     if (req.readyState == 4 && req.status == 200){
         //Setting up the canvas and the text to be black
         var canvas = document.getElementById("cpuCanvas");
@@ -61,4 +68,9 @@ function addWordToCanvas(text) {
         cpuX += 0;
         cpuY += 40;
 }
+
+
+    console.log(userWord);
+    console.log(userGuesses);
+
 
