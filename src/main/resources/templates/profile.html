@@ -52,9 +52,15 @@
 
 
 
-<header class="masthead text-center text-white">
-    <h1 id = "user-name" th:text="${session.username}" style="top:0; left:0" ></h1>
-    <h2 style="left:0">Past Games:</h2>
+<header class="masthead text-white">
+    <header class="profile-header">
+        <h1 th:text="${session.username}" style="top:0; left:0" ></h1>
+        <h2>Past Games:</h2>
+    </header>
+    <p>&nbsp;</p>
+    <div class="text-center">
+        <!--<h5>Player Victory</h5>-->
+    </div>
 </header>
 
 

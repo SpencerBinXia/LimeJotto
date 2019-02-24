@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import com.limejotto.limej.object.Word;
 
 /**
- * User repository which queries the database for information.
+ * Word repository which queries the database for words in the Wordbank table.
  */
 @Repository
 public class wordRepo {
@@ -27,8 +27,8 @@ public class wordRepo {
         String wordQuery ="SELECT * FROM Wordbank WHERE Word='" + word + "';";
         try
         {
-            jdbc.queryForObject(wordQuery, new RowMapper() {
-                public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+            jdbc.queryForObject(wordQuery, new RowMapper<Word>() {
+                public Word mapRow(ResultSet rs, int rowNum) throws SQLException {
                     System.out.println(rs.getString(1));
                     tempword.setWord(rs.getString(1));
                     return tempword;

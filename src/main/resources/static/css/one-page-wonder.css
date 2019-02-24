@@ -18,6 +18,29 @@ h6 {
   font-weight: 800 !important;
 }
 
+.alphabetTable {
+    margin-top: 5rem;
+}
+.column {
+    float: left;
+    width: 33.33%;
+}
+.game {
+    margin-right: 6%;
+    margin-left: 6%;
+    margin-top: -8rem;
+}
+.game:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.profile-header {
+    padding-left: 25%;
+    margin-top: -7rem;
+}
+
 .logo-image {
     height: 5%;
     width: 5%;
@@ -281,18 +304,7 @@ header.masthead .bg-circle-4 {
 .pageMainArea {
     /*z-index: 2000;*/
 }
-header.game{
-    position: relative;
-    overflow: hidden;
-    padding-top: 4rem;
-    padding-bottom: 7rem;
-    background: -webkit-gradient(linear, left bottom, left top, from(#57ff27), to(#040002));
-    background: linear-gradient(0deg,#57ff27 0%, #090005 100%);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: scroll;
-    background-size: cover;
-}
+
 
 #humanHeader{
     color:white;
@@ -305,7 +317,6 @@ header.game{
     height: 675px;
     overflow: auto;
     border: 1px solid;
-    float: left;
 }
 .playerCanvas{
     background-color: white;
@@ -322,8 +333,6 @@ header.game{
 #cpuHeader{
     color:white;
 }
-#superContainer{
-    padding-left: 90em;
-}
+
 
 

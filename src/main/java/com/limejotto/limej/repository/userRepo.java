@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * User repository which queries the database for information.
+ * User repository which queries the user table in the database.
  */
 @Repository
 public class userRepo {

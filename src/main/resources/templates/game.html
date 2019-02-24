@@ -25,6 +25,9 @@
     <!-- Custom styles for this template -->
     <link href="css/one-page-wonder.css" rel="stylesheet">
 
+    <!-- alphabet script -->
+    <script src="js/alphabet.js" ></script>
+
 
 </head>
 
@@ -56,29 +59,82 @@
 
 
 
-<header class="game">
-        <h1 id="humanHeader" >Human Player</h1>
-        <div class = "canvasContainer">
-            <canvas class="playerCanvas"  width="5000px" height="5000px"></canvas>
+
+
+
+<header class="masthead">
+    <div class="game">
+        <!--Player controls area-->
+        <div class="column" style="width:500px">
+            <h2 id="humanHeader" th:text="${session.username}" ></h2>
+            <div class = "canvasContainer">
+                <canvas class="playerCanvas"  width="5000px" height="5000px"></canvas>
+            </div>
+            <h5 id ="humanLbl">Enter your word:</h5>
+            <input id = "humanTxt" type = "text" name = "humanTxt">
+            <button id ="humanBtn" name = "humanBtn" onclick="addWordToCanvas()">Submit</button>
         </div>
-        <div id ="superContainer">
-            <h1 id="cpuHeader" >CPU</h1>
-        <div id = "cpuContainer">
-            <canvas id="cpuCanvas"  width="5000px" height="5000px"></canvas>
+        <!--Alphabet-->
+        <div class="column">
+            <table class="alphabetTable" style="background-color: white; width:100%">
+                <tr>
+                    <td><h5 class="letter" onclick="changeColor(this)">A</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">B</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">C</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">D</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">E</h5></td>
+                </tr>
+                <tr>
+                    <td><h5 class="letter" onclick="changeColor(this)">F</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">G</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">H</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">I</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">J</h5></td>
+                </tr>
+                <tr>
+                    <td><h5 class="letter" onclick="changeColor(this)">K</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">L</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">M</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">N</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">O</h5></td>
+                </tr>
+                <tr>
+                    <td><h5 class="letter" onclick="changeColor(this)">P</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">Q</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">R</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">S</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">T</h5></td>
+                </tr>
+                <tr>
+                    <td><h5 class="letter" onclick="changeColor(this)">U</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">V</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">W</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">X</h5></td>
+                    <td><h5 class="letter" onclick="changeColor(this)">Y</h5></td>
+                </tr>
+                <tr>
+                    <td><h5 class="letter" onclick="changeColor(this)">Z</h5></td>
+                </tr>
+            </table>
         </div>
+        <!--AI area-->
+        <div class="column">
+            <div id ="superContainer">
+                <h1 id="cpuHeader" >CPU</h1>
+                <div id = "cpuContainer">
+                    <canvas id="cpuCanvas"  width="5000px" height="5000px"></canvas>
+                </div>
+            </div>
         </div>
-
-
-    <h3 id ="humanLbl">Enter your word</h3>
-    <input id = "humanTxt" type = "text" name = "humanTxt">
-    <button id ="humanBtn" name = "humanBtn" onclick="addWordToCanvas()">Submit</button>
-
-
-
-
-
-
+    </div>
 </header>
+
+
+
+
+
+
+
 
 
 
