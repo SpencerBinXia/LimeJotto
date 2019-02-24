@@ -68,11 +68,11 @@
         <div class="column" style="width:500px">
             <h2 id="humanHeader" th:text="${session.username}" ></h2>
             <div class = "canvasContainer">
-                <canvas class="playerCanvas"  width="5000px" height="5000px"></canvas>
+                <canvas id = "humanCanvas" class="playerCanvas"  width="5000px" height="5000px"></canvas>
             </div>
             <h5 id ="humanLbl">Enter your word:</h5>
             <input id = "humanTxt" type = "text" name = "humanTxt">
-            <button id ="humanBtn" name = "humanBtn" onclick="addWordToCanvas()">Submit</button>
+            <button id ="humanBtn" name = "humanBtn" onclick="wordLookup()">Submit</button>
         </div>
         <!--Alphabet-->
         <div class="column">

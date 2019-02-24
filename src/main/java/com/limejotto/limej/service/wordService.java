@@ -26,4 +26,8 @@ public class wordService {
         }
         return false;
     }
+    public String randomWord() {
+        String wRepoResult = wrepo.randomInitialWord();
+        return wRepoResult;
+    }
 }

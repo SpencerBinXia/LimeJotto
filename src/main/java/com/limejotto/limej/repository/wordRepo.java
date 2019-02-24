@@ -25,6 +25,26 @@ public class wordRepo {
     {
         Word tempword =new Word();
         String wordQuery ="SELECT * FROM Wordbank WHERE Word='" + word + "';";
+        queryForWord(tempword, wordQuery);
+        if (tempword.getWord() != null && tempword.getWord().equals(word))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public String randomInitialWord()
+    {
+        Word tempword =new Word();
+        String wordQuery ="SELECT * FROM Wordbank ORDER BY RAND() LIMIT 1;";
+        queryForWord(tempword, wordQuery);
+        return tempword.getWord();
+
+    }
+
+    private void queryForWord(Word tempword, String wordQuery) {
         try
         {
             jdbc.queryForObject(wordQuery, new RowMapper<Word>() {
@@ -38,13 +58,6 @@ public class wordRepo {
         catch (Exception e)
         {
         }
-        if (tempword.getWord() != null && tempword.getWord().equals(word))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
+
 }
