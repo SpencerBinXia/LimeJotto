@@ -61,7 +61,7 @@ public class wordRepo {
 
     public Word guessWord(String regex) {
         Word tempword = new Word();
-        String guessQuery = "SELECT Word FROM Wordbank WHERE (Word REGEXP " + regex + ") ORDER BY RAND() LIMIT 1";
+        String guessQuery = "SELECT Word FROM Wordbank WHERE (Word REGEXP '" + regex + "') ORDER BY RAND() LIMIT 1";
         queryForWord(tempword, guessQuery);
         return tempword;
     }
