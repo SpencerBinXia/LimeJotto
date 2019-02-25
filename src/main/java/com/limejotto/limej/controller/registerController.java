@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/register")
 public class registerController {
 
-    //@GetMapping
     @Autowired
     private loginRegisterService service;
 

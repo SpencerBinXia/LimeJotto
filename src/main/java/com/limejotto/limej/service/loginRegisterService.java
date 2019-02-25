@@ -27,4 +27,16 @@ public class loginRegisterService {
         }
         return false;
     }
+
+    public boolean loginUser (RegInfo log){
+        User existing = urepo.findByNameAndPass(log);
+        if (existing != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

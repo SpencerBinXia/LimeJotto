@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 
 <head>
@@ -52,19 +53,19 @@
     <!-- Modal content -->
     <div class="login-content">
       <div class="login-header">
-        <span class="close" onclick="spanClick()" >&times;</span>
+        <span class="close" onclick="spanClick()">&times;</span>
         Enter your username and password:
       </div>
       <div class="login-body">
-        <form>
+        <form action="login" th:action="@{/login}" th:object="${loginfo}" method="post">
           Username:<br>
-          <input type="text" name="username"><br>
+          <input type="text" name="username" th:field="*{username}"><br>
           Password:<br>
-          <input type="text" name="password">
+          <input type="text" name="password" th:field="*{password}">
+          <div class="login-footer">
+            <input id="submitBtn" type="submit"></button>
+          </div>
         </form>
-      </div>
-      <div class="login-footer">
-        <button id="submitBtn" onclick="" >Submit</button>
       </div>
     </div>
   </div>

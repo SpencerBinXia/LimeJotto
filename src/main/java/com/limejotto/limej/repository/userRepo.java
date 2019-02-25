@@ -1,6 +1,7 @@
 package com.limejotto.limej.repository;
 
 import com.limejotto.limej.object.User;
+import com.limejotto.limej.object.RegInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -26,6 +27,27 @@ public class userRepo {
         try
         {
             jdbc.queryForObject(findUser, new RowMapper<User>() {
+                public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+                    tempuser.setUsername(rs.getString("user_name"));
+                    tempuser.setPassword(rs.getString("user_password"));
+                    return tempuser;
+                }
+            });
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+        return tempuser;
+    }
+
+    public User findByNameAndPass(RegInfo log)
+    {
+        String loginUser ="SELECT * FROM user WHERE user_name='" + log.getUsername() + "' AND user_password= '" + log.getPassword() + "';";
+        User tempuser = new User();
+        try
+        {
+            jdbc.queryForObject(loginUser, new RowMapper<User>() {
                 public User mapRow(ResultSet rs, int rowNum) throws SQLException {
                     tempuser.setUsername(rs.getString("user_name"));
                     tempuser.setPassword(rs.getString("user_password"));
