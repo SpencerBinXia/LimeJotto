@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
 //import javax.servlet.http.HttpSession;
 
 /*
- * Controller for word lookup in the database. Responds with 1 if the word is found, and 0 if the word is not found.
+ * Controller for CPU's word guess attempt. Takes a regex string and uses it to query the database for a random word with a regex search.
  */
 @RestController
 @RequestMapping("/cpuGuess")

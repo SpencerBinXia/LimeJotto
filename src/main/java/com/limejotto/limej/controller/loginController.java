@@ -24,16 +24,13 @@ public class loginController {
     public String registerUser(@ModelAttribute RegInfo loginfo, HttpSession session, ModelMap model)
     {
         boolean loginBool = service.loginUser(loginfo);
-        System.out.println("login control reached");
         if (loginBool)
         {
             session.setAttribute("username", loginfo.getUsername());
-            System.out.println("loginBool reached");
-            return "redirect:/profile";
+            return "redirect:/game";
         }
         else
         {
-            System.out.println("Login failed");
             return "redirect:/";
         }
     }

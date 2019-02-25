@@ -1,4 +1,18 @@
 
+var isFirstWord = 1;
+var illegalWord;
+
+function letterCheck(word) {
+    var i, j;
+    for (i = 0; i < 5; i++) {
+        for (j = (i+1); j < 5; j++) {
+            if (word[i] === word[j]) {
+                return true; // illegal word
+            }
+        }
+    }
+    return false;
+}
 
     /*
      * Function that takes a word as user input on game.html and sends an AJAX POST request to the server,
@@ -21,7 +35,19 @@
                 if (wordResult.word[0] === "0") {
                     alert("This is not a valid word.");
                 } else if (wordResult.word[0] === "1") {
-                    addWordToCanvas(text);
+                    if(isFirstWord) {
+                        var illegal = letterCheck(text);
+                        if (illegal) {
+                            illegalWord = 0;
+                            alert("The first word must contain 5 unique letters.");
+                        } else {
+                            isFirstWord = 0;
+                            addWordToCanvas(text);
+                        }
+                    }
+                    else{
+                        addWordToCanvas(text);
+                    }
                 }
             },
             error: function (e) {
