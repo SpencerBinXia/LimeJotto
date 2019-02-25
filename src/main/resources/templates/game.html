@@ -70,7 +70,7 @@
             <div class = "canvasContainer">
                 <canvas id = "humanCanvas" class="playerCanvas"  width="5000px" height="5000px"></canvas>
             </div>
-            <h5 id ="humanLbl">Enter your word:</h5>
+            <h5 id ="humanLbl">Enter your word (lowercase):</h5>
             <input id = "humanTxt" type = "text" name = "humanTxt">
             <button id ="humanBtn" name = "humanBtn" onclick="wordLookup()">Submit</button>
         </div>
@@ -116,6 +116,10 @@
                     <td class="text-center"><h5 class="letter" onclick="changeColor(this)">Z</h5></td>
                 </tr>
             </table>
+            <br>
+            <div style="margin: auto; width: 40%">
+                <button id="restartBtn" onclick="restart()" class="btn btn-primary btn-xl rounded-pill mt-5 text-white">Restart</button>
+            </div>
         </div>
         <!--AI area-->
         <div class="column">
