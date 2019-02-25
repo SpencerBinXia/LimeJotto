@@ -10,6 +10,24 @@ var greenLetters = [];
 var redLetters = [];
 var compWord;
 
+
+
+function restart() {
+    initial = 0;
+    currentx = 30;
+    currenty =40;
+    cpuX = 30;
+    cpuY =40;
+    req;
+    userWord;
+    userGuesses = [];
+    greenLetters = [];
+    redLetters = [];
+    compWord;
+    var btn = document.getElementById('humanBtn');
+    btn.style.display = "block";
+    window.location.href = "/game";
+}
 function compareLetter(guess, compWord, index) {
     var i;
     for (i = 0; i < 5; i++) {
@@ -19,7 +37,6 @@ function compareLetter(guess, compWord, index) {
     }
     return false;
 }
-
 function letterSearch(letter, array) {
     var i;
     for (i = 0; i < array.length; i++) {
@@ -73,6 +90,8 @@ function addWordToCanvas(text) {
             // you win
             currenty += 40;
             ctx.fillText("YOU WIN!", xposition, currenty);
+            var btn = document.getElementById('humanBtn');
+            btn.style.display = "none";
         }
     }
     // logistics for scrolling
