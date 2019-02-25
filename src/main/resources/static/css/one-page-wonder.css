@@ -20,6 +20,8 @@ h6 {
 
 .alphabetTable {
     margin-top: 5rem;
+    background-color: white;
+    width:100%;
 }
 .column {
     float: left;
@@ -311,6 +313,20 @@ header.masthead .bg-circle-4 {
 }
 #humanLbl{
     color:white;
+}
+#humanBtn{
+    border: 0;
+    background-color: #ee0979;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+}
+#humanBtn:hover{
+    border: 0;
+    background-color: #bd0760;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
 }
 .canvasContainer{
     width: 400px;

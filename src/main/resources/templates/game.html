@@ -68,11 +68,7 @@
         <div class="column" style="width:500px">
             <h2 id="humanHeader" th:text="${session.username}" ></h2>
             <div class = "canvasContainer">
-<<<<<<< HEAD
                 <canvas id = "humanCanvas" class="playerCanvas"  width="5000px" height="5000px"></canvas>
-=======
-                <canvas id="humanCanvas" class="playerCanvas"  width="5000px" height="5000px"></canvas>
->>>>>>> b6ba03f3f332bc1ccaaad57573fd301750e5a677
             </div>
             <h5 id ="humanLbl">Enter your word:</h5>
             <input id = "humanTxt" type = "text" name = "humanTxt">
@@ -80,51 +76,51 @@
         </div>
         <!--Alphabet-->
         <div class="column">
-            <table class="alphabetTable" style="background-color: white; width:100%">
+            <table class="alphabetTable">
                 <tr>
-                    <td><h5 class="letter" onclick="changeColor(this)">A</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">B</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">C</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">D</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">E</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">A</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">B</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">C</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">D</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">E</h5></td>
                 </tr>
                 <tr>
-                    <td><h5 class="letter" onclick="changeColor(this)">F</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">G</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">H</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">I</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">J</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">F</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">G</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">H</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">I</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">J</h5></td>
                 </tr>
                 <tr>
-                    <td><h5 class="letter" onclick="changeColor(this)">K</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">L</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">M</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">N</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">O</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">K</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">L</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">M</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">N</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">O</h5></td>
                 </tr>
                 <tr>
-                    <td><h5 class="letter" onclick="changeColor(this)">P</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">Q</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">R</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">S</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">T</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">P</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">Q</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">R</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">S</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">T</h5></td>
                 </tr>
                 <tr>
-                    <td><h5 class="letter" onclick="changeColor(this)">U</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">V</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">W</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">X</h5></td>
-                    <td><h5 class="letter" onclick="changeColor(this)">Y</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">U</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">V</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">W</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">X</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">Y</h5></td>
                 </tr>
                 <tr>
-                    <td><h5 class="letter" onclick="changeColor(this)">Z</h5></td>
+                    <td class="text-center"><h5 class="letter" onclick="changeColor(this)">Z</h5></td>
                 </tr>
             </table>
         </div>
         <!--AI area-->
         <div class="column">
-            <div id ="superContainer">
-                <h1 id="cpuHeader" >CPU</h1>
+            <div id ="superContainer" style="float: right">
+                <h2 id="cpuHeader" style="text-align: right" >Computer</h2>
                 <div id = "cpuContainer">
                     <canvas id="cpuCanvas"  width="5000px" height="5000px"></canvas>
                 </div>
