@@ -334,5 +334,15 @@ header.masthead .bg-circle-4 {
     color:white;
 }
 
+/* Past Games Table */
+.pastTable {
+    direction: rtl;
+    margin: auto;
+    width: 400px;
+    height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: white;
+}
 
 
