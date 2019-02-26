@@ -38,10 +38,10 @@ public class gameRepo {
             Game pastGame = new Game();
             pastGame.setGameTime(LocalDateTime.now());
             pastGame.setUsername((String) row.get("user_name"));
-            pastGame.setUsername((String) row.get("user_guesses"));
-            pastGame.setUsername((String) row.get("cpu_guesses"));
-            pastGame.setUsername((String) row.get("user_name"));
-            pastGame.setUsername((String) row.get("user_name"));
+            pastGame.setUserGuesses((String) row.get("user_guesses"));
+            pastGame.setCpuGuesses((String) row.get("cpu_guesses"));
+            pastGame.setUserWord((String) row.get("user_word"));
+            pastGame.setCpuWord((String) row.get("cpu_word"));
             pastGames.add(pastGame);
         }
         return pastGames;
