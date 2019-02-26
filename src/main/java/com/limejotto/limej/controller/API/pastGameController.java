@@ -24,14 +24,9 @@ public class pastGameController {
     private pastGameService gservice;
 
     @RequestMapping(method= RequestMethod.POST, produces= "application/json")
-    public JSONObject wordLookup(@RequestBody String username)
+    public JSONObject wordLookup(@RequestBody Game playedGame)
     {
-        List<Game> pastGames = gservice.findPastGames(username);
-        for (Game game: pastGames)
-        {
-            System.out.println(game.getUsername());
-            System.out.println(game.getUserWord());
-        }
+        gservice.insertGameService(playedGame);
         return null;
     }
 }
