@@ -5,7 +5,8 @@
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script>
-        var showtext = "[[${session.username}]]";
+        <!-- Adds thymeleaf session.username as a global variable to be used in external JS files -->
+        var sessionName = "[[${session.username}]]";
     </script>
     <script src="js/pastGames.js" userName=""></script>
     <script src="js/wordSearch.js"></script>

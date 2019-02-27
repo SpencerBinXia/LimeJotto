@@ -12,21 +12,29 @@ import com.limejotto.limej.service.pastGameService;
 
 import com.limejotto.limej.object.Game;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.ArrayList;
 
 @Controller
-@RequestMapping("/pastGames")
+@RequestMapping("/pastGame")
 @ResponseBody
 public class pastGameController {
 
     @Autowired
     private pastGameService gservice;
 
-    @RequestMapping(method= RequestMethod.POST, produces= "application/json")
-    public JSONObject wordLookup(@RequestBody Game playedGame)
+    @RequestMapping(method= RequestMethod.POST)
+    public String wordLookup(@RequestBody Game playedGame)
     {
-        gservice.insertGameService(playedGame);
-        return null;
+        playedGame.setGameTime(LocalDateTime.now());
+        System.out.println(playedGame.getGameTime());
+        System.out.println(playedGame.getUsername());
+        System.out.println(playedGame.getUserWord());
+        System.out.println(playedGame.getCpuWord());
+        System.out.println(playedGame.getUserGuesses());
+        System.out.println(playedGame.getCpuGuesses());
+        return "OK";
+        //gservice.insertGameService(playedGame);
     }
 }

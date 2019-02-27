@@ -36,7 +36,6 @@ public class gameRepo {
         rows = jdbc.queryForList(gameQuery);
         for (Map row : rows) {
             Game pastGame = new Game();
-            pastGame.setGameTime(LocalDateTime.now());
             pastGame.setUsername((String) row.get("user_name"));
             pastGame.setUserGuesses((String) row.get("user_guesses"));
             pastGame.setCpuGuesses((String) row.get("cpu_guesses"));
