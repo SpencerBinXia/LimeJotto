@@ -18,4 +18,8 @@ public class pastGameService {
         List<Game> pastGames = grepo.queryForGames(username);
         return pastGames;
     }
+
+    public void insertGameService(Game playedGame){
+        grepo.insertGame(playedGame);
+    }
 }
