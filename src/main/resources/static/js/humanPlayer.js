@@ -150,14 +150,16 @@ function  cpuAI() {
 }
 
 function cpuGenerateRegex() {
-    //var regex = "%5B%5Eabc";
-    for(var i =0; i< cpuRedLetters.length;i++){
-        //regex+= cpuRedLetters[i];
-        //regex+= cpuRedLetters[i].toUpperCase();
-    }
-    //regex+= "%5D%2B";
 
-    var regex = "%5Bb-zB-Z%5D";
+
+    var regex = "%5Cb%5B%5E0";
+    for(var i =0; i< cpuRedLetters.length;i++){
+        regex+= cpuRedLetters[i];
+        regex+= cpuRedLetters[i].toUpperCase();
+    }
+    regex+= "%5CW%5D%2B%5Cb";
+
+ 
     cpuGuess(regex);
     
 }
