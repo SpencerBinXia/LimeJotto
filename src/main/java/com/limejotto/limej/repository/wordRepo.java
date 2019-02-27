@@ -73,8 +73,8 @@ public class wordRepo {
     }
 
 
-    public List<Word> guesstheWord(String regex) {
-        String guessQuery = "SELECT Word FROM Wordbank WHERE (Word REGEXP " + regex + ")";
+    public List<Word> guesstheWord() {
+        String guessQuery = "SELECT * FROM Wordbank";
         List<Map<String, Object>> rows = jdbc.queryForList(guessQuery);
         List<Word> cpuWords = new ArrayList<Word>();
         rows = jdbc.queryForList(guessQuery);
