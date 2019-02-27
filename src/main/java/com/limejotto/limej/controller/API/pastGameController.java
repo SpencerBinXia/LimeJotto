@@ -24,8 +24,8 @@ public class pastGameController {
     @Autowired
     private pastGameService gservice;
 
-    @RequestMapping(method= RequestMethod.POST)
-    public String wordLookup(@RequestBody Game playedGame)
+    @RequestMapping(method= RequestMethod.POST, produces= "application/json")
+    public JSONObject wordLookup(@RequestBody Game playedGame)
     {
         playedGame.setGameTime(LocalDateTime.now());
         System.out.println(playedGame.getGameTime());
@@ -34,7 +34,10 @@ public class pastGameController {
         System.out.println(playedGame.getCpuWord());
         System.out.println(playedGame.getUserGuesses());
         System.out.println(playedGame.getCpuGuesses());
-        return "OK";
-        //gservice.insertGameService(playedGame);
+
+        gservice.insertGameService(playedGame);
+        JSONObject message = new JSONObject();
+        message.put("result", "1");
+        return message;
     }
 }

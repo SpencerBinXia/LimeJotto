@@ -1,14 +1,13 @@
 function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses)
 {
-    var userGuessJSON = JSON.stringify(userGuesses);
-    var cpuGuessJSON = JSON.stringify(cpuGuesses);
-    console.log(userGuessJSON);
-    console.log(cpuGuessJSON);
+    var userGuessString = JSON.stringify(userGuesses);
+    var cpuGuessString = JSON.stringify(cpuGuesses);
     console.log(userWord);
     console.log(cpuWord);
     console.log(sessionName);
+    var newName = sessionName;
 
-    var pastGame = {username: sessionName, userWord: userWord, cpuWord: cpuWord, userGuesses: userGuesses, cpuGuesses: cpuGuesses};
+    var pastGame = {username: newName, userWord: userWord, cpuWord: cpuWord, userGuesses: userGuessString, cpuGuesses: cpuGuessString};
 
     return $.ajax({
         type: "POST",
@@ -18,7 +17,7 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses)
         data: JSON.stringify(pastGame),
         cache: false,
         success: function (pastGameResponse) {
-            console.log(pastGameResponse);
+            console.log(pastGameResponse.result[0]);
         },
         error: function (e) {
             console.log("Failure", e);

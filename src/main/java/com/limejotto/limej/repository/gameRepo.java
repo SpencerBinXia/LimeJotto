@@ -24,7 +24,7 @@ public class gameRepo {
 
     public void insertGame(Game newgame)
     {
-        jdbc.update("INSERT INTO Games(Game_Date, user_name, user_guesses, cpu_guesses, user_word, cpu_word)" + "VALUES(?,?,?,?,?)",
+        jdbc.update("INSERT INTO Games(Game_Date, user_name, user_guesses, cpu_guesses, user_word, cpu_word)" + "VALUES(?,?,?,?,?,?)",
                      newgame.getGameTime(),newgame.getUsername(),newgame.getUserGuesses(),newgame.getCpuGuesses(),newgame.getUserWord(),newgame.getCpuWord());
     }
 

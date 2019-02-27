@@ -94,8 +94,6 @@ function addWordToCanvas(text) {
         if(text.localeCompare(compWord) == 0){
             // you win
             currenty += 40;
-            console.log(userGuesses);
-            console.log(cpuGuesses);
             insertGameRequest(userWord, compWord, userGuesses, cpuGuesses);
             ctx.fillText("YOU WIN!", xposition, currenty);
             var btn = document.getElementById('humanBtn');
