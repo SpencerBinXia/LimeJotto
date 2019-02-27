@@ -106,11 +106,11 @@ function addWordToCanvas(text) {
     currenty += 40;
     initial = 1;
 
-    console.log(userWord);
-    console.log(compWord);
-    console.log(userGuesses);
-    console.log(greenLetters);
-    console.log(redLetters);
+    // console.log(userWord);
+    // console.log(compWord);
+    // console.log(userGuesses);
+    // console.log(greenLetters);
+    // console.log(redLetters);
 }
 
 /*
@@ -135,11 +135,12 @@ function  cpuAI() {
             if (compareLetter(text, humanWord, i) == 1) {
                 numLetters++;
                 if (letterSearch(text[i], cpuGreenLetters) == false) {
-                    greenLetters.push(text[i]);
+                    cpuGreenLetters.push(text[i]);
                 }
             } else {
                 if (letterSearch(text[i], cpuRedLetters) == false) {
-                    redLetters.push(text[i]);
+                    cpuRedLetters.push(text[i]);
+                    console.log(cpuRedLetters);
                 }
             }
         }
@@ -149,13 +150,14 @@ function  cpuAI() {
 }
 
 function cpuGenerateRegex() {
-    // var regex = "^(?!.*["
-    // for(var i =0; i< cpuRedLetters.length;i++){
-    //     regex+= cpuRedLetters[i];
-    //     regex+= cpuRedLetters[i].toUpperCase();
-    // }
-    // regex+= "])[a-zA-Z]+$"
-    var regex = "%5Ba-zA-Z%5D%2B";
+    //var regex = "%5B%5Eabc";
+    for(var i =0; i< cpuRedLetters.length;i++){
+        //regex+= cpuRedLetters[i];
+        //regex+= cpuRedLetters[i].toUpperCase();
+    }
+    //regex+= "%5D%2B";
+
+    var regex = "%5Bb-zB-Z%5D";
     cpuGuess(regex);
     
 }
