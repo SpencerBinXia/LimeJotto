@@ -1,5 +1,6 @@
 package com.limejotto.limej.repository;
 
+import com.limejotto.limej.object.Game;
 import com.limejotto.limej.object.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,13 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import com.limejotto.limej.object.Word;
+
+import javax.xml.transform.Result;
 
 /**
  * Word repository which queries the database for words in the Wordbank table.
@@ -66,8 +72,8 @@ public class wordRepo {
         return tempword;
     }
 
-    /**
-    public List<Word> guessWord(String regex) {
+
+    public List<Word> guesstheWord(String regex) {
         String guessQuery = "SELECT Word FROM Wordbank WHERE (Word REGEXP " + regex + ")";
         List<Map<String, Object>> rows = jdbc.queryForList(guessQuery);
         List<Word> cpuWords = new ArrayList<Word>();
@@ -79,6 +85,5 @@ public class wordRepo {
         }
         return cpuWords;
     }
-     **/
 }
 

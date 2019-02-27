@@ -38,6 +38,6 @@ public class wordService {
 
     public Word guessWordService(String regex)
     {
-        return wrepo.guessWord(regex);
+        return wrepo.guesstheWord(regex);
     }
 }
