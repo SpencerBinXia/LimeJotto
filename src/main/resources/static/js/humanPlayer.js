@@ -6,6 +6,7 @@ var cpuY =40;
 var req;
 var userWord;
 var userGuesses = [];
+var cpuGuesses = [];
 var greenLetters = [];
 var redLetters = [];
 var compWord;
@@ -93,6 +94,9 @@ function addWordToCanvas(text) {
         if(text.localeCompare(compWord) == 0){
             // you win
             currenty += 40;
+            console.log(userGuesses);
+            console.log(cpuGuesses);
+            insertGameRequest(userWord, compWord, userGuesses, cpuGuesses);
             ctx.fillText("YOU WIN!", xposition, currenty);
             var btn = document.getElementById('humanBtn');
             btn.style.display = "none";
@@ -143,6 +147,7 @@ function  cpuAI() {
                 }
             }
         }
+        cpuGuesses.push(text);
         updateCPUGuess(text);
     }
     
