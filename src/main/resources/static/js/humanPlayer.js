@@ -178,6 +178,7 @@ function updateCPUInitial() {
         ctx.fillStyle = "black";
         ctx.textAlign = "center";
         compWord = req.responseText;
+        console.log(compWord);
 
         var xposition = currentx + length;
         xposition = xposition * 4;
@@ -199,7 +200,7 @@ function updateCPUGuess(text){
 
     var xposition = currentx + length;
     xposition = xposition * 4;
-    ctx.fillText("CPU Guess: " + text, xposition, cpuY);
+    ctx.fillText("GUESS: " + text, xposition, cpuY);
     cpuX += 0;
     cpuY += 40;
 
