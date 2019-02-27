@@ -45,16 +45,16 @@ public class wordService {
     public Word guessWordService(String regex)
     {
         List<Word> cpuWords = wrepo.guesstheWord();
-        ArrayList<String> matchedStrings = new ArrayList<>();
+        ArrayList<Word> matchedStrings = new ArrayList<>();
         Pattern regexP = Pattern.compile(regex);
         for (Word word : cpuWords){
             Matcher matcher = regexP.matcher(word.getWord());
             if (matcher.matches()){
-                matchedStrings.add(word.getWord());
+                matchedStrings.add(word);
             }
         }
         Random rand = new Random();
         int random = rand.nextInt(matchedStrings.size());
-        return cpuWords.get(random);
+        return matchedStrings.get(random);
     }
 }

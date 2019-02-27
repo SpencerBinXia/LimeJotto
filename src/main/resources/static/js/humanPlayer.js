@@ -159,7 +159,7 @@ function cpuGenerateRegex() {
     }
     regex+= "%5CW%5D%2B%5Cb";
 
- 
+
     cpuGuess(regex);
     
 }
