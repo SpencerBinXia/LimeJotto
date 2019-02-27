@@ -37,7 +37,7 @@ public class pastGameController {
 
         gservice.insertGameService(playedGame);
         JSONObject message = new JSONObject();
-        message.put("result", "1");
+        message.put("result", "OK");
         return message;
     }
 }

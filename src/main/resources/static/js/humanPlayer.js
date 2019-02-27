@@ -93,6 +93,7 @@ function addWordToCanvas(text) {
         ctx.fillText("GUESS: " + text + " - " + numLetters, xposition, currenty);
         if(text.localeCompare(compWord) == 0){
             // you win
+            console.log("inside localeCompare reached");
             currenty += 40;
             insertGameRequest(userWord, compWord, userGuesses, cpuGuesses);
             ctx.fillText("YOU WIN!", xposition, currenty);
