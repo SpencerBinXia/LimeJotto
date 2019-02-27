@@ -150,16 +150,12 @@ function  cpuAI() {
 }
 
 function cpuGenerateRegex() {
-
-
     var regex = "%5Cb%5B%5E0";
     for(var i =0; i< cpuRedLetters.length;i++){
         regex+= cpuRedLetters[i];
         regex+= cpuRedLetters[i].toUpperCase();
     }
     regex+= "%5CW%5D%2B%5Cb";
-
-
     cpuGuess(regex);
     
 }
@@ -206,6 +202,13 @@ function updateCPUGuess(text){
     ctx.fillText("CPU Guess: " + text, xposition, cpuY);
     cpuX += 0;
     cpuY += 40;
+    if (text == humanWord){
+        // you win
+        cpuY += 40;
+        ctx.fillText("CPU WIN!", xposition, cpuY);
+        var btn = document.getElementById('humanBtn');
+        btn.style.display = "none";
+    }
 
 }
 
