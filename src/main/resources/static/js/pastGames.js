@@ -1,4 +1,4 @@
-function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses)
+function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses, winner)
 {
     var userGuessString = JSON.stringify(userGuesses);
     var cpuGuessString = JSON.stringify(cpuGuesses);
@@ -9,7 +9,7 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses)
     var strippedCpuGuesses = cpuGuessString.replace(/['\[\]"]+/g, '');
     console.log(strippedUserGuesses.replace(/['"]+/g, ''));
 
-    var pastGame = {username: sessionName, userWord: userWord, cpuWord: cpuWord, userGuesses: strippedUserGuesses, cpuGuesses: strippedCpuGuesses};
+    var pastGame = {username: sessionName, userWord: userWord, cpuWord: cpuWord, userGuesses: strippedUserGuesses, cpuGuesses: strippedCpuGuesses, winner: winner};
 
     return $.ajax({
         type: "POST",
