@@ -1,3 +1,4 @@
+
 function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses)
 {
     var userGuessString = JSON.stringify(userGuesses);
@@ -25,5 +26,40 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses)
             console.log("Failure", e);
         }
     });
+
+
+}
+
+/*
+    generate key for hashmap
+ */
+function key(char){
+    return char.charCodeAt(0);
+}
+/*
+    calculate which letters are correct by comparing the
+    cpuword and human word and put them in a hashmap which will later be used to compare and color code letters
+ */
+function calculateCorrectLetters(element){
+    var index = element.rowIndex;
+     var lettersCorrect = {};
+     var cpuWord= cpuPastWords[index];
+     var humanWord = userPastWords[index];
+        console.log(cpuWord);
+    for (var i =0; i<5; i++) {
+        if (humanWord[i]==cpuWord[i]){
+            lettersCorrect[key(humanWord[i])] = humanWord[i];
+        }
+    }
+     showStats(index)
+}
+/*
+    this function currently should log the guesses of the game that is clicked on in  the table
+ */
+function showStats(index) {
+    var userGuesses = userPastGuesses[index];
+    for (var x = 0; x<userGuesses.length;x++){
+        console.log(userGuesses[x]);
+    }
 
 }
