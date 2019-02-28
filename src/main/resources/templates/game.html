@@ -4,6 +4,11 @@
 <head>
 
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script>
+        <!-- Adds thymeleaf session.username as a global variable to be used in external JS files -->
+        var sessionName = "[[${session.username}]]";
+    </script>
+    <script src="js/pastGames.js"></script>
     <script src="js/wordSearch.js"></script>
     <script src =js/humanPlayer.js></script>
     <meta charset="utf-8">
@@ -66,7 +71,7 @@
     <div class="game">
         <!--Player controls area-->
         <div class="column" style="width:500px">
-            <h2 id="humanHeader" th:text="${session.username}" ></h2>
+            <h2 id="humanHeader" th:value="${session.username}" th:text="${session.username}" ></h2>
             <div class = "canvasContainer">
                 <canvas id = "humanCanvas" class="playerCanvas"  width="5000px" height="5000px"></canvas>
             </div>
