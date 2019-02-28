@@ -10,6 +10,15 @@ public class Game {
     private String cpuWord;
     private String userGuesses;
     private String cpuGuesses;
+    private String winner;
+
+    public String getWinner() {
+        return winner;
+    }
+
+    public void setWinner(String winner) {
+        this.winner = winner;
+    }
 
     public LocalDateTime getGameTime() {
         return gameTime;

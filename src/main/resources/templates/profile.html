@@ -69,19 +69,19 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>CPU's Word</th>
+                <th>Player's Word</th>
                 <th>Game Date</th>
                 <th>Winner</th>
-                <th>Player's Word</th>
-                <th>CPU's Word</th>
             </tr>
             </thead>
-            <th:block th:each="game : ${pastGames}">"
+            <th:block th:each="game : ${pastGames}">
             <tbody>
             <tr>
-                <td th:text="${game.getGameTime()}"></td>
-                <td th:text="${game.getUsername()}"></td>
-                <td th:text="${game.getUserWord()}"></td>
                 <td th:text="${game.getCpuWord()}"></td>
+                <td th:text="${game.getUserWord()}"></td>
+                <td th:text="${game.getGameTime()}"></td>
+                <td th:text="${game.getWinner()}"></td>
             </tr>
             </tbody>
             </th:block>

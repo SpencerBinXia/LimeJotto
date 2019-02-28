@@ -13,6 +13,7 @@ var compWord;
 var humanWord;
 var cpuGreenLetters = [];
 var cpuRedLetters = [];
+var winner;
 
 
 
@@ -24,10 +25,15 @@ function restart() {
     cpuY =40;
     req;
     userWord;
+    humanWord;
+    compWord;
+    winner;
     userGuesses = [];
+    cpuGuesses = [];
     greenLetters = [];
     redLetters = [];
-    compWord;
+    cpuGreenLetters = [];
+    cpuRedLetters = [];
     var btn = document.getElementById('humanBtn');
     btn.style.display = "block";
     window.location.href = "/game";
@@ -94,7 +100,8 @@ function addWordToCanvas(text) {
         if(text.localeCompare(compWord) == 0){
             // you win
             currenty += 40;
-            insertGameRequest(userWord, compWord, userGuesses, cpuGuesses);
+            winner = sessionName;
+            insertGameRequest(userWord, compWord, userGuesses, cpuGuesses, winner);
             ctx.fillText("YOU WIN!", xposition, currenty);
             var btn = document.getElementById('humanBtn');
             btn.style.display = "none";
@@ -216,7 +223,8 @@ function updateCPUGuess(text){
     if (text == humanWord){
         // you win
         // cpuY += 40;
-        insertGameRequest(userWord, compWord, userGuesses, cpuGuesses);
+        var winner = "CPU";
+        insertGameRequest(userWord, compWord, userGuesses, cpuGuesses, winner);
         ctx.fillText("CPU WIN!", xposition, cpuY);
         cpuY += 40;
         ctx.fillText("CPU WORD: " + compWord, xposition, cpuY);

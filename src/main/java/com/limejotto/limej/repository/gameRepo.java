@@ -27,8 +27,8 @@ public class gameRepo {
 
     public void insertGame(Game newgame)
     {
-        jdbc.update("INSERT INTO Games(Game_Date, user_name, user_guesses, cpu_guesses, user_word, cpu_word)" + "VALUES(?,?,?,?,?,?)",
-                     newgame.getGameTime(),newgame.getUsername(),newgame.getUserGuesses(),newgame.getCpuGuesses(),newgame.getUserWord(),newgame.getCpuWord());
+        jdbc.update("INSERT INTO Games(Game_Date, user_name, user_guesses, cpu_guesses, user_word, cpu_word, winner)" + "VALUES(?,?,?,?,?,?,?)",
+                newgame.getGameTime(),newgame.getUsername(),newgame.getUserGuesses(),newgame.getCpuGuesses(),newgame.getUserWord(),newgame.getCpuWord(),newgame.getWinner());
     }
 
     public List<Game> queryForGames(String username)
@@ -45,6 +45,7 @@ public class gameRepo {
             pastGame.setCpuGuesses((String) row.get("cpu_guesses"));
             pastGame.setUserWord((String) row.get("user_word"));
             pastGame.setCpuWord((String) row.get("cpu_word"));
+            pastGame.setWinner((String) row.get("winner"));
             pastGames.add(pastGame);
         }
         return pastGames;
