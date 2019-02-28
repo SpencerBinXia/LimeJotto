@@ -13,6 +13,7 @@ import com.limejotto.limej.service.pastGameService;
 import com.limejotto.limej.object.Game;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -27,7 +28,7 @@ public class pastGameController {
     @RequestMapping(method= RequestMethod.POST, produces= "application/json")
     public JSONObject wordLookup(@RequestBody Game playedGame)
     {
-        playedGame.setGameTime(LocalDateTime.now());
+        playedGame.setGameTime(LocalDateTime.now(ZoneId.of("America/New_York")));
         System.out.println(playedGame.getGameTime());
         System.out.println(playedGame.getUsername());
         System.out.println(playedGame.getUserWord());

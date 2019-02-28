@@ -5,12 +5,11 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses)
     console.log(userWord);
     console.log(cpuWord);
     console.log(sessionName);
-    var newName = sessionName;
-    var strippedUserGuesses = userGuessString.replace(someStr.replace(/['\[\]"]+/g, ''));
-    var strippedCpuGuesses = cpuGuessString.replace(someStr.replace(/['\[\]"]+/g, ''));
+    var strippedUserGuesses = userGuessString.replace(/['\[\]"]+/g, '');
+    var strippedCpuGuesses = userGuessString.replace(/['\[\]"]+/g, '');
     console.log(strippedUserGuesses.replace(/['"]+/g, ''));
 
-    var pastGame = {username: newName, userWord: userWord, cpuWord: cpuWord, userGuesses: strippedUserGuesses, cpuGuesses: strippedCpuGuesses};
+    var pastGame = {username: sessionName, userWord: userWord, cpuWord: cpuWord, userGuesses: strippedUserGuesses, cpuGuesses: strippedCpuGuesses};
 
     return $.ajax({
         type: "POST",

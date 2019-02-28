@@ -93,8 +93,10 @@ function addWordToCanvas(text) {
         ctx.fillText("GUESS: " + text + " - " + numLetters, xposition, currenty);
         if(text.localeCompare(compWord) == 0){
             // you win
-            console.log("inside localeCompare reached");
             currenty += 40;
+            console.log("win reached");
+            console.log(userGuesses);
+            console.log(cpuGuesses);
             insertGameRequest(userWord, compWord, userGuesses, cpuGuesses);
             ctx.fillText("YOU WIN!", xposition, currenty);
             var btn = document.getElementById('humanBtn');
@@ -150,7 +152,7 @@ function  cpuAI() {
         cpuGuesses.push(text);
         updateCPUGuess(text);
     }
-    
+
 }
 
 function cpuGenerateRegex() {
@@ -161,7 +163,7 @@ function cpuGenerateRegex() {
     }
     regex+= "%5CW%5D%2B%5Cb";
     cpuGuess(regex);
-    
+
 }
 function cpuGuess(regex){
     var url = "/cpuGuess?cpuGuess="+regex;
@@ -207,7 +209,11 @@ function updateCPUGuess(text){
     cpuX += 0;
     cpuY += 40;
     if (text == humanWord){
-        // you win
+        // CPU wins
+        console.log("win reached");
+        console.log(userGuesses);
+        console.log(cpuGuesses);
+        insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses);
         cpuY += 40;
         ctx.fillText("CPU WIN!", xposition, cpuY);
         var btn = document.getElementById('humanBtn');
@@ -215,6 +221,5 @@ function updateCPUGuess(text){
     }
 
 }
-
 
 
