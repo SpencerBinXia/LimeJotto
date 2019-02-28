@@ -6,7 +6,7 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses)
     console.log(cpuWord);
     console.log(sessionName);
     var strippedUserGuesses = userGuessString.replace(/['\[\]"]+/g, '');
-    var strippedCpuGuesses = userGuessString.replace(/['\[\]"]+/g, '');
+    var strippedCpuGuesses = cpuGuessString.replace(/['\[\]"]+/g, '');
     console.log(strippedUserGuesses.replace(/['"]+/g, ''));
 
     var pastGame = {username: sessionName, userWord: userWord, cpuWord: cpuWord, userGuesses: strippedUserGuesses, cpuGuesses: strippedCpuGuesses};
