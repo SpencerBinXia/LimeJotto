@@ -34,6 +34,8 @@
     <!-- Custom styles for this template -->
     <link href="css/one-page-wonder.css" rel="stylesheet">
 
+    <script src="js/pastGames.js" ></script>
+
 
 </head>
 
@@ -66,7 +68,6 @@
 <header class="masthead text-white">
     <header class="profile-header">
         <h1 th:text="${session.username}" style="top:0; left:0" ></h1>
-        <h2>Past Games:</h2>
     </header>
     <p>&nbsp;</p>
     <div class="text-center">
@@ -79,13 +80,14 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>CPU's Word</th>
+                <th>Player's Word</th>
                 <th>Game Date</th>
                 <th>Winner</th>
-                <th>Player's Word</th>
-                <th>CPU's Word</th>
             </tr>
             </thead>
             <th:block th:each="game : ${pastGames}">"
+
                 <script>
                     userPastGuesses[i] = "[[${game.getUserGuesses()}]]";
                     cpuPastGuesses[i] = "[[${game.getCpuGuesses()}]]";
@@ -101,10 +103,50 @@
                 <td th:text="${game.getCpuWord()}"></td>
             </tr>
             </tbody>
+
+                <tbody>
+                <tr onclick="showStats()">
+                    <td th:text="${game.getCpuWord()}"></td>
+                    <td th:text="${game.getUserWord()}"></td>
+                    <td th:text="${game.getGameTime()}"></td>
+                    <td th:text="${game.getWinner()}"></td>
+                </tr>
+                </tbody>
+
             </th:block>
         </table>
     </div>
 </header>
+
+
+<div id="statsModal" class="modal">
+    <!-- Modal content -->
+    <div class="stats-content">
+        <div class="stats-header">
+            <span class="close" onclick="closeClick()">&times;</span>
+            Guesses for this game:
+        </div>
+        <div class="stats-body">
+            <!-- Guesses go here -->
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>CPU</th>
+                </tr>
+                </thead>
+                <th:block th:each="game : ${pastGames}">"
+                    <tbody>
+                    <tr onclick="showStats()">
+                        <td th:text="${game.getUserWord()}"></td>
+                        <td th:text="${game.getCpuWord()}"></td>
+                    </tr>
+                    </tbody>
+                </th:block>
+            </table>
+        </div>
+    </div>
+</div>
 
 
 

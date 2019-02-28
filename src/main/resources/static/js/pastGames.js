@@ -1,5 +1,6 @@
 
-function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses)
+function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses, winner)
+
 {
     var userGuessString = JSON.stringify(userGuesses);
     var cpuGuessString = JSON.stringify(cpuGuesses);
@@ -10,7 +11,7 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses)
     var strippedCpuGuesses = cpuGuessString.replace(/['\[\]"]+/g, '');
     console.log(strippedUserGuesses.replace(/['"]+/g, ''));
 
-    var pastGame = {username: sessionName, userWord: userWord, cpuWord: cpuWord, userGuesses: strippedUserGuesses, cpuGuesses: strippedCpuGuesses};
+    var pastGame = {username: sessionName, userWord: userWord, cpuWord: cpuWord, userGuesses: strippedUserGuesses, cpuGuesses: strippedCpuGuesses, winner: winner};
 
     return $.ajax({
         type: "POST",
@@ -26,6 +27,7 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses)
             console.log("Failure", e);
         }
     });
+
 
 
 }
@@ -63,3 +65,30 @@ function showStats(index) {
     }
 
 }
+
+
+
+
+
+function showStats() {
+    displayStatsModal();
+
+}
+
+function displayStatsModal() {
+    var modal = document.getElementById('statsModal');
+    modal.style.display = "block";
+}
+
+function closeClick() {
+    var modal = document.getElementById('statsModal');
+    modal.style.display = "none";
+}
+
+window.onclick =function (event) {
+    var modal = document.getElementById('statsModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
