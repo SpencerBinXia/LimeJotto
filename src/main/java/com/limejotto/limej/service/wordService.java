@@ -56,7 +56,17 @@ public class wordService {
 
     public Word guessWordService(String regex)
     {
-        Word word = new Word();
-        return word; //wrepo.guesstheWord(regex);
+        List<Word> cpuWords = wrepo.guesstheWord();
+        ArrayList<Word> matchedStrings = new ArrayList<>();
+        Pattern regexP = Pattern.compile(regex);
+        for (Word word : cpuWords){
+            Matcher matcher = regexP.matcher(word.getWord());
+            if (matcher.matches()){
+                matchedStrings.add(word);
+            }
+        }
+        Random rand = new Random();
+        int random = rand.nextInt(matchedStrings.size());
+        return matchedStrings.get(random);
     }
 }

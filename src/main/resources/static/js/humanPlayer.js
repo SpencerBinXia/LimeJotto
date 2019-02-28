@@ -2,7 +2,7 @@ var initial = 0;
 var currentx = 30;
 var currenty =40;
 var cpuX = 30;
-var cpuY =40;
+var cpuY = -40;
 var req;
 var userWord;
 var userGuesses = [];
@@ -106,11 +106,11 @@ function addWordToCanvas(text) {
     currenty += 40;
     initial = 1;
 
-    console.log(userWord);
-    console.log(compWord);
-    console.log(userGuesses);
-    console.log(greenLetters);
-    console.log(redLetters);
+    // console.log(userWord);
+    // console.log(compWord);
+    // console.log(userGuesses);
+    // console.log(greenLetters);
+    // console.log(redLetters);
 }
 
 /*
@@ -135,11 +135,12 @@ function  cpuAI() {
             if (compareLetter(text, humanWord, i) == 1) {
                 numLetters++;
                 if (letterSearch(text[i], cpuGreenLetters) == false) {
-                    greenLetters.push(text[i]);
+                    cpuGreenLetters.push(text[i]);
                 }
             } else {
                 if (letterSearch(text[i], cpuRedLetters) == false) {
-                    redLetters.push(text[i]);
+                    cpuRedLetters.push(text[i]);
+                    console.log(cpuRedLetters);
                 }
             }
         }
@@ -149,13 +150,12 @@ function  cpuAI() {
 }
 
 function cpuGenerateRegex() {
-    // var regex = "^(?!.*["
-    // for(var i =0; i< cpuRedLetters.length;i++){
-    //     regex+= cpuRedLetters[i];
-    //     regex+= cpuRedLetters[i].toUpperCase();
-    // }
-    // regex+= "])[a-zA-Z]+$"
-    var regex = "%5Ba-zA-Z%5D%2B";
+    var regex = "%5Cb%5B%5E0";
+    for(var i =0; i< cpuRedLetters.length;i++){
+        regex+= cpuRedLetters[i];
+        regex+= cpuRedLetters[i].toUpperCase();
+    }
+    regex+= "%5CW%5D%2B%5Cb";
     cpuGuess(regex);
     
 }
@@ -203,6 +203,13 @@ function updateCPUGuess(text){
     ctx.fillText("GUESS: " + text, xposition, cpuY);
     cpuX += 0;
     cpuY += 40;
+    if (text == humanWord){
+        // you win
+        // cpuY += 40;
+        ctx.fillText("CPU WIN!", xposition, cpuY);
+        var btn = document.getElementById('humanBtn');
+        btn.style.display = "none";
+    }
 
 }
 
