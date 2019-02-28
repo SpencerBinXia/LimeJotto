@@ -6,7 +6,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
@@ -36,6 +39,7 @@ public class gameRepo {
         rows = jdbc.queryForList(gameQuery);
         for (Map row : rows) {
             Game pastGame = new Game();
+            pastGame.setGameTime(Instant.ofEpochMilli( ((Date) row.get("Game_Date")).getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime());
             pastGame.setUsername((String) row.get("user_name"));
             pastGame.setUserGuesses((String) row.get("user_guesses"));
             pastGame.setCpuGuesses((String) row.get("cpu_guesses"));

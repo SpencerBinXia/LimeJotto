@@ -34,6 +34,7 @@ public class profileController {
             System.out.println(game);
             System.out.println(game.getUsername());
             System.out.println(game.getUserWord());
+            System.out.println(game.getGameTime());
         }
 
         model.addAttribute("pastGames", pastGames);

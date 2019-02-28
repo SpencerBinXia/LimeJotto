@@ -70,42 +70,21 @@
             <thead>
             <tr>
                 <th>Game Date</th>
+                <th>Winner</th>
                 <th>Player's Word</th>
                 <th>CPU's Word</th>
             </tr>
             </thead>
+            <th:block th:each="game : ${pastGames}">"
             <tbody>
             <tr>
-                <td>1</td>
-                <td>Something</td>
-                <td>yep</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Something</td>
-                <td>yep</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Something</td>
-                <td>yep</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Something</td>
-                <td>yep</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Something</td>
-                <td>yep</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Something</td>
-                <td>yep</td>
+                <td th:text="${game.getGameTime()}"></td>
+                <td th:text="${game.getUsername()}"></td>
+                <td th:text="${game.getUserWord()}"></td>
+                <td th:text="${game.getCpuWord()}"></td>
             </tr>
             </tbody>
+            </th:block>
         </table>
     </div>
 </header>
