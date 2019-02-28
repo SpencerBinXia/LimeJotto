@@ -125,6 +125,8 @@ function cpuSelectWord(){
 }
 /*
     This function is responsible for updating the CPU to determine how to guess next
+    it figures out one letter that isnt in the human word on each turn if htere are any letters in the cpu guess
+    that arent in the human word
  */
 function  cpuAI() {
     if(req.readyState==4 && req.status == 200) {
@@ -140,7 +142,9 @@ function  cpuAI() {
             } else {
                 if (letterSearch(text[i], cpuRedLetters) == false) {
                     cpuRedLetters.push(text[i]);
-                    console.log(cpuRedLetters);
+                    //makes cpu not as hard to beat because as soon as we find that one letter is not in the word
+                    // we break the for loop instead of figuring out every letter that isnt in the word
+                    i=5;
                 }
             }
         }
@@ -149,6 +153,10 @@ function  cpuAI() {
     
 }
 
+/*
+    This function generate a expression to exclude the characters we know isnt in the word
+
+ */
 function cpuGenerateRegex() {
     var regex = "%5Cb%5B%5E0";
     for(var i =0; i< cpuRedLetters.length;i++){
@@ -167,7 +175,7 @@ function cpuGuess(regex){
     req.send(null);
 }
 /*
- this function updates the canvas for the cpu
+ this function updates the canvas for the cpu once we get an intial word from the db
  */
 function updateCPUInitial() {
     if (req.readyState == 4 && req.status == 200) {
@@ -188,6 +196,9 @@ function updateCPUInitial() {
     cpuY += 40;
 }
 
+/*
+    This function updates the cpu canvas once we get a guess word from the db
+ */
 function updateCPUGuess(text){
     //Setting up the canvas and the text to be black
     var canvas = document.getElementById("cpuCanvas");
