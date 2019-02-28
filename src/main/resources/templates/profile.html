@@ -107,7 +107,7 @@
                     <th>CPU</th>
                 </tr>
                 </thead>
-                <th:block th:each="game : ${pastGames}">"
+                <th:block th:each="game : ${pastGames}">
                     <tbody>
                     <tr onclick="showStats()">
                         <td th:text="${game.getUserWord()}"></td>
