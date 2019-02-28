@@ -27,3 +27,27 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses, winner)
     });
 
 }
+
+
+
+function showStats() {
+    displayStatsModal();
+
+}
+
+function displayStatsModal() {
+    var modal = document.getElementById('statsModal');
+    modal.style.display = "block";
+}
+
+function closeClick() {
+    var modal = document.getElementById('statsModal');
+    modal.style.display = "none";
+}
+
+window.onclick =function (event) {
+    var modal = document.getElementById('statsModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
