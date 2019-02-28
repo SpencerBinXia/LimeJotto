@@ -189,7 +189,7 @@ function updateCPUInitial() {
 
         var xposition = currentx + length;
         xposition = xposition * 4;
-        ctx.fillText("CPU WORD: " + compWord, xposition, cpuY);
+        ctx.fillText("CPU WORD: ?????" , xposition, cpuY);
 
     }
     cpuX += 0;
@@ -215,10 +215,11 @@ function updateCPUGuess(text){
     cpuY += 40;
     if (text == humanWord){
         // you win
-        cpuY += 40;
         ctx.fillText("CPU WIN!", xposition, cpuY);
         var btn = document.getElementById('humanBtn');
         btn.style.display = "none";
+        cpuY += 40;
+        ctx.fillText("CPU WORD: "+ compWord, xposition, cpuY);
     }
 
 }
