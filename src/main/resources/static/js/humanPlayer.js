@@ -38,6 +38,7 @@ function restart() {
     btn.style.display = "block";
     window.location.href = "/game";
 }
+
 function compareLetter(guess, compWord, index) {
     var i;
     for (i = 0; i < 5; i++) {
@@ -193,7 +194,7 @@ function updateCPUInitial() {
         ctx.fillStyle = "black";
         ctx.textAlign = "center";
         compWord = req.responseText;
-
+        console.log(compWord);
         var xposition = currentx + length;
         xposition = xposition * 4;
         ctx.fillText("CPU WORD: ?????", xposition, cpuY);
@@ -223,7 +224,7 @@ function updateCPUGuess(text){
     if (text == humanWord){
         // you win
         // cpuY += 40;
-        var winner = "CPU";
+        winner = "CPU";
         insertGameRequest(userWord, compWord, userGuesses, cpuGuesses, winner);
         ctx.fillText("CPU WIN!", xposition, cpuY);
         cpuY += 40;
