@@ -87,10 +87,15 @@ function showStats(element) {
         cpuGuesses[y] = cpuGuesses[y] + " " + numLetters + "";
     }
     $.each(userGuesses, function(index, userGuess) {
-        bodyString += ('<tr><td>'+userGuess+'</td><td>'+cpuGuesses[index]+'</td></tr>');
+        bodyString += ('<tr><td id="userGuess">'+userGuess+'</td><td id="cpuGuess">'+cpuGuesses[index]+'</td></tr>');
     });
     $('.statsModalTable tbody').html(bodyString);
-    $('.statsModalTable tr td').each( function(){
+    $('#userGuess').each( function(){
+        for (let i = 0; i < 5; i++) {
+            if ($(this).index(i) === cpuWord[i]) {
+                return true;
+            }
+        }
         var colorString = "<span style=\"color: green;\">" + guess[index] + "</span>'";
         var regex = new RegExp(guess[index], "g");
         var regexColor = new RegExp(colorString, "g");
