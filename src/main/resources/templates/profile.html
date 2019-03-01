@@ -4,6 +4,16 @@
 <head>
 
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script>
+        <!-- Adds thymeleaf session.username as a global variable to be used in external JS files -->
+
+        var userPastGuesses = [];
+        var cpuPastGuesses = [];
+        var userPastWords = []
+        var cpuPastWords = [];
+        var i =0;
+    </script>
+    <script src="js/pastGames.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -77,6 +87,23 @@
             </tr>
             </thead>
             <th:block th:each="game : ${pastGames}">"
+
+                <script>
+                    userPastGuesses[i] = "[[${game.getUserGuesses()}]]";
+                    cpuPastGuesses[i] = "[[${game.getCpuGuesses()}]]";
+                    userPastWords[i] = "[[${game.getUserWord()}]]";
+                    cpuPastWords[i] = "[[${game.getCpuWord()}]]";
+                    i+=1;
+                </script>
+            <tbody>
+            <tr  onclick="calculateCorrectLetters(this)">
+                <td th:text="${game.getGameTime()}"></td>
+                <td th:text="${game.getUsername()}"></td>
+                <td th:text="${game.getUserWord()}"></td>
+                <td th:text="${game.getCpuWord()}"></td>
+            </tr>
+            </tbody>
+
                 <tbody>
                 <tr onclick="showStats()">
                     <td th:text="${game.getCpuWord()}"></td>
@@ -85,6 +112,7 @@
                     <td th:text="${game.getWinner()}"></td>
                 </tr>
                 </tbody>
+
             </th:block>
         </table>
     </div>
