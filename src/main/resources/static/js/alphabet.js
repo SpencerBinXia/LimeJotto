@@ -20,3 +20,4 @@ function replaceColor(letter) {
     var res = str.replace(reg, '<span style="color: #CC0000;">' + letter + '</span>');
     document.getElementById("demo").innerHTML = res;
 };
+

@@ -69,39 +69,33 @@ function showStats(element) {
     for (let y = 0;y<userGuesses.length;y++){
         let numLetters = 0;
         for (let i = 0; i < 5; i++) {
-            if (letterCountAndColor(userGuesses[y], cpuWord, i) == 1){
+            if (compareLetter(userGuesses[y], cpuWord, i) == 1){
                 numLetters++;
             }
         }
-        console.log(userGuesses[y]);
         userGuesses[y] = userGuesses[y] + " - " + numLetters + "L";
     }
     for (let y = 0;y<cpuGuesses.length;y++){
         let numLetters = 0;
         for (let i = 0; i < 5; i++) {
-            if (letterCountAndColor(cpuGuesses[y], humanWord, i) == 1){
+            if (compareLetter(cpuGuesses[y], humanWord, i) == 1){
                 numLetters++;
             }
         }
-        console.log(cpuGuesses[y]);
         cpuGuesses[y] = cpuGuesses[y] + " " + numLetters + "";
     }
     $.each(userGuesses, function(index, userGuess) {
-        bodyString += ('<tr><td id="userGuess">'+userGuess+'</td><td id="cpuGuess">'+cpuGuesses[index]+'</td></tr>');
+        bodyString += ('<tr><td class="userGuess">'+userGuess+'</td><td id="cpuGuess">'+cpuGuesses[index]+'</td></tr>');
     });
     $('.statsModalTable tbody').html(bodyString);
-    $('#userGuess').each( function(){
-        /*
+    var cpuWordRegex = new RegExp("[" + cpuWord + "](?!([^<]+)?>)","g");
+    $('.userGuess').each( function(){
+        console.log($(this).text());
+        let thisGuess = $(this).text();
         for (let i = 0; i < 5; i++) {
-            if ($(this).index(i) === cpuWord[i]) {
-                return true;
-            }
+            thisGuess.replace(cpuWordRegex, '<span style="color: #CC0000;">' + thisGuess[i] + '</span>');
         }
-        //var colorString = "<span style=\"color: green;\">" + guess[index] + "</span>'";
-        //var regex = new RegExp(guess[index], "g");
-        //var regexColor = new RegExp(colorString, "g");
-        //guess.replace(regex, regexColor);
-        */
+        $(this).text(thisGuess);
     });
 
     displayStatsModal();
@@ -127,9 +121,9 @@ function showStats() {
 }
 */
 
-function letterCountAndColor(guess, origWord, index) {
+function compareLetter(guess, compWord, index) {
     for (let i = 0; i < 5; i++) {
-        if (guess[index] === origWord[i]) {
+        if (guess[index] === compWord[i]) {
             return true;
         }
     }
