@@ -9,7 +9,7 @@
 
         var userPastGuesses = [];
         var cpuPastGuesses = [];
-        var userPastWords = []
+        var userPastWords = [];
         var cpuPastWords = [];
         var i =0;
     </script>
@@ -95,17 +95,9 @@
                     cpuPastWords[i] = "[[${game.getCpuWord()}]]";
                     i+=1;
                 </script>
-            <tbody>
-            <tr  onclick="calculateCorrectLetters(this)">
-                <td th:text="${game.getGameTime()}"></td>
-                <td th:text="${game.getUsername()}"></td>
-                <td th:text="${game.getUserWord()}"></td>
-                <td th:text="${game.getCpuWord()}"></td>
-            </tr>
-            </tbody>
 
                 <tbody>
-                <tr onclick="showStats()">
+                <tr onclick="showStats(this)">
                     <td th:text="${game.getCpuWord()}"></td>
                     <td th:text="${game.getUserWord()}"></td>
                     <td th:text="${game.getGameTime()}"></td>
@@ -128,21 +120,16 @@
         </div>
         <div class="stats-body">
             <!-- Guesses go here -->
-            <table class="table table-striped">
+            <table class="statsModalTable table table-striped">
                 <thead>
                 <tr>
-                    <th>Player</th>
-                    <th>CPU</th>
+                    <th>Your Guesses</th>
+                    <th>CPU Guesses</th>
                 </tr>
                 </thead>
-                <th:block th:each="game : ${pastGames}">"
                     <tbody>
-                    <tr onclick="showStats()">
-                        <td th:text="${game.getUserWord()}"></td>
-                        <td th:text="${game.getCpuWord()}"></td>
-                    </tr>
+
                     </tbody>
-                </th:block>
             </table>
         </div>
     </div>

@@ -1,6 +1,5 @@
 
 function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses, winner)
-
 {
     var userGuessString = JSON.stringify(userGuesses);
     var cpuGuessString = JSON.stringify(cpuGuesses);
@@ -9,7 +8,6 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses, winner)
     console.log(sessionName);
     var strippedUserGuesses = userGuessString.replace(/['\[\]"]+/g, '');
     var strippedCpuGuesses = cpuGuessString.replace(/['\[\]"]+/g, '');
-    console.log(strippedUserGuesses.replace(/['"]+/g, ''));
 
     var pastGame = {username: sessionName, userWord: userWord, cpuWord: cpuWord, userGuesses: strippedUserGuesses, cpuGuesses: strippedCpuGuesses, winner: winner};
 
@@ -27,9 +25,6 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses, winner)
             console.log("Failure", e);
         }
     });
-
-
-
 }
 
 /*
@@ -58,6 +53,35 @@ function calculateCorrectLetters(element){
 /*
     this function currently should log the guesses of the game that is clicked on in  the table
  */
+function showStats(element) {
+    var index = element.rowIndex;
+    var lettersCorrect = {};
+    var cpuWord= cpuPastWords[index];
+    var humanWord = userPastWords[index];
+    var bodyString = '';
+    console.log(humanWord);
+    console.log(cpuWord);
+    console.log(userPastGuesses[index]);
+    console.log(cpuPastGuesses[index]);
+    var userGuesses = userPastGuesses[index].split(",");
+    var cpuGuesses = cpuPastGuesses[index].split(",");
+    console.log(userGuesses);
+    console.log(cpuGuesses);
+    for (var x = 0; x<userGuesses.length;x++){
+        console.log(userGuesses[x]);
+    }
+    for (var y = 0;y<cpuGuesses.length;y++){
+        console.log(cpuGuesses[y]);
+    }
+    $.each(userGuesses, function(index, userGuess) {
+        bodyString += ('<tr><td>'+userGuess+'</td><td>'+cpuGuesses[index]+'</td></tr>');
+    });
+    $('.statsModalTable tbody').html(bodyString);
+    displayStatsModal();
+}
+
+/*
+    this function currently should log the guesses of the game that is clicked on in  the table
 function showStats(index) {
     var userGuesses = userPastGuesses[index];
     for (var x = 0; x<userGuesses.length;x++){
@@ -65,15 +89,16 @@ function showStats(index) {
     }
 
 }
+*/
 
 
 
-
-
+/*
 function showStats() {
     displayStatsModal();
 
 }
+*/
 
 function displayStatsModal() {
     var modal = document.getElementById('statsModal');

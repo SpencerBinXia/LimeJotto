@@ -14,49 +14,52 @@ function letterCheck(word) {
     return false;
 }
 
-    /*
-     * Function that takes a word as user input on game.html and sends an AJAX POST request to the server,
-     * checking if the input word is found inside the database. On success, the word will be added
-     * to the canvas. On failure, the word is not added and the user will be alerted.
-     */
-    function wordLookup() {
-        // Get the text from the text box and the length of the text
-        var text = $('#humanTxt').val();
-        var userWord = {word: text};
-        //var userWord = {word: "fgszd"};
-        return $.ajax({
-            type: "POST",
-            url: "/isWord",
-            contentType: "application/JSON",
-            dataType: "json",
-            data: JSON.stringify(userWord),
-            cache: false,
-            success: function (wordResult) {
-                if (wordResult.word[0] === "0") {
-                    alert("This is not a valid word.");
-                } else if (wordResult.word[0] === "1") {
-                    if(isFirstWord) {
-                        var illegal = letterCheck(text);
-                        if (illegal) {
-                            illegalWord = 0;
-                            alert("The first word must contain 5 unique letters.");
-                        } else {
-                            isFirstWord = 0;
-                            addWordToCanvas(text);
-                        }
-                    }
-                    else{
+/*
+ * Function that takes a word as user input on game.html and sends an AJAX POST request to the server,
+ * checking if the input word is found inside the database. On success, the word will be added
+ * to the canvas. On failure, the word is not added and the user will be alerted.
+ */
+function wordLookup() {
+    // Get the text from the text box and the length of the text
+    var text = $('#humanTxt').val();
+    var userWord = {word: text};
+    //var userWord = {word: "fgszd"};
+    return $.ajax({
+        type: "POST",
+        url: "/isWord",
+        contentType: "application/JSON",
+        dataType: "json",
+        data: JSON.stringify(userWord),
+        cache: false,
+        success: function (wordResult) {
+            if (wordResult.word[0] === "0") {
+                alert("This is not a valid word.");
+            } else if (wordResult.word[0] === "1") {
+                if(isFirstWord) {
+                    var illegal = letterCheck(text);
+                    if (illegal) {
+                        illegalWord = 0;
+                        alert("The first word must contain 5 unique letters.");
+                    } else {
+                        isFirstWord = 0;
                         addWordToCanvas(text);
                     }
                 }
-            },
-            error: function (e) {
-                console.log("Failure", e);
+                else{
+                    addWordToCanvas(text);
+                }
             }
-        });
-    }
+        },
+        error: function (e) {
+            console.log("Failure", e);
+        }
+    });
+}
 
 /*
+ *  Defunct WordsAPI call. We realized that WordsAPI would not be
+ *  suitable for our project requirements.
+ *
 $(document).ready(function()
 {
     var wordbank;
