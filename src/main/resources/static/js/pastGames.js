@@ -91,15 +91,17 @@ function showStats(element) {
     });
     $('.statsModalTable tbody').html(bodyString);
     $('#userGuess').each( function(){
+        /*
         for (let i = 0; i < 5; i++) {
             if ($(this).index(i) === cpuWord[i]) {
                 return true;
             }
         }
-        var colorString = "<span style=\"color: green;\">" + guess[index] + "</span>'";
-        var regex = new RegExp(guess[index], "g");
-        var regexColor = new RegExp(colorString, "g");
-        guess.replace(regex, regexColor);
+        //var colorString = "<span style=\"color: green;\">" + guess[index] + "</span>'";
+        //var regex = new RegExp(guess[index], "g");
+        //var regexColor = new RegExp(colorString, "g");
+        //guess.replace(regex, regexColor);
+        */
     });
 
     displayStatsModal();
