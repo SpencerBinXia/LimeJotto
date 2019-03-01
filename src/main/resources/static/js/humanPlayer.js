@@ -48,6 +48,7 @@ function compareLetter(guess, compWord, index) {
     }
     return false;
 }
+
 function letterSearch(letter, array) {
     var i;
     for (i = 0; i < array.length; i++) {
