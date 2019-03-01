@@ -54,8 +54,7 @@ function calculateCorrectLetters(element){
     this function currently should log the guesses of the game that is clicked on in  the table
  */
 function showStats(element) {
-    var index = element.rowIndex;
-    var lettersCorrect = {};
+    var index = element.rowIndex-1;
     var cpuWord= cpuPastWords[index];
     var humanWord = userPastWords[index];
     var bodyString = '';
@@ -67,16 +66,37 @@ function showStats(element) {
     var cpuGuesses = cpuPastGuesses[index].split(",");
     console.log(userGuesses);
     console.log(cpuGuesses);
-    for (var x = 0; x<userGuesses.length;x++){
-        console.log(userGuesses[x]);
+    for (let y = 0;y<userGuesses.length;y++){
+        let numLetters = 0;
+        for (let i = 0; i < 5; i++) {
+            if (letterCountAndColor(userGuesses[y], cpuWord, i) == 1){
+                numLetters++;
+            }
+        }
+        console.log(userGuesses[y]);
+        userGuesses[y] = userGuesses[y] + " - " + numLetters + "L";
     }
-    for (var y = 0;y<cpuGuesses.length;y++){
+    for (let y = 0;y<cpuGuesses.length;y++){
+        let numLetters = 0;
+        for (let i = 0; i < 5; i++) {
+            if (letterCountAndColor(cpuGuesses[y], humanWord, i) == 1){
+                numLetters++;
+            }
+        }
         console.log(cpuGuesses[y]);
+        cpuGuesses[y] = cpuGuesses[y] + " " + numLetters + "";
     }
     $.each(userGuesses, function(index, userGuess) {
         bodyString += ('<tr><td>'+userGuess+'</td><td>'+cpuGuesses[index]+'</td></tr>');
     });
     $('.statsModalTable tbody').html(bodyString);
+    $('.statsModalTable tr td').each( function(){
+        var colorString = "<span style=\"color: green;\">" + guess[index] + "</span>'";
+        var regex = new RegExp(guess[index], "g");
+        var regexColor = new RegExp(colorString, "g");
+        guess.replace(regex, regexColor);
+    });
+
     displayStatsModal();
 }
 
@@ -99,6 +119,15 @@ function showStats() {
 
 }
 */
+
+function letterCountAndColor(guess, origWord, index) {
+    for (let i = 0; i < 5; i++) {
+        if (guess[index] === origWord[i]) {
+            return true;
+        }
+    }
+    return false;
+}
 
 function displayStatsModal() {
     var modal = document.getElementById('statsModal');
