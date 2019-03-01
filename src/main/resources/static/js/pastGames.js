@@ -58,6 +58,8 @@ function showStats(element) {
     var cpuWord= cpuPastWords[index];
     var humanWord = userPastWords[index];
     var bodyString = '';
+    var numHumLetters = [];
+    var numCPULetters = [];
     console.log(humanWord);
     console.log(cpuWord);
     console.log(userPastGuesses[index]);
@@ -73,7 +75,7 @@ function showStats(element) {
                 numLetters++;
             }
         }
-        userGuesses[y] = userGuesses[y] + " - " + numLetters + "L";
+        numHumLetters.push(numLetters);
     }
     for (let y = 0;y<cpuGuesses.length;y++){
         let numLetters = 0;
@@ -82,23 +84,47 @@ function showStats(element) {
                 numLetters++;
             }
         }
-        cpuGuesses[y] = cpuGuesses[y] + " " + numLetters + "";
+        numCPULetters.push(numLetters);
     }
     $.each(userGuesses, function(index, userGuess) {
-        bodyString += ('<tr><td class="userGuess">'+userGuess+'</td><td id="cpuGuess">'+cpuGuesses[index]+'</td></tr>');
+        bodyString += ('<tr><td class="userGuess"><span style="color:red">'+userGuess+'</span>: ' + numHumLetters[index] +'</td><td class="cpuGuess"><span style="color:red">'+cpuGuesses[index]+'</span>: ' + numCPULetters[index] + '</td></tr>');
     });
     $('.statsModalTable tbody').html(bodyString);
-    var cpuWordRegex = new RegExp("[" + cpuWord + "](?!([^<]+)?>)","g");
     $('.userGuess').each( function(){
-        console.log($(this).text());
-        let thisGuess = $(this).text();
-        for (let i = 0; i < 5; i++) {
-            thisGuess.replace(cpuWordRegex, '<span style="color: #CC0000;">' + thisGuess[i] + '</span>');
+        for (let i = 0; i < cpuWord.length; i++) {
+            let thisGuess = $(this).html();
+            let res;
+            let cpuWordRegex =  new RegExp(cpuWord[i] + "(?!([^<]+)?>)","g");
+            res = thisGuess.replace(cpuWordRegex, '<span style="color:green">' + cpuWord[i] + '</span>');
+            $(this).html(res);
         }
-        $(this).text(thisGuess);
     });
-
+    $('.cpuGuess').each( function(){
+        for (let i = 0; i < humanWord.length; i++) {
+            let thisGuess = $(this).html();
+            let res;
+            let humanWordRegex =  new RegExp(humanWord[i] + "(?!([^<]+)?>)","g");
+            res = thisGuess.replace(humanWordRegex, '<span style="color:green">' + humanWord[i] + '</span>');
+            $(this).html(res);
+        }
+    });
+    //replaceColors(cpuWord);
     displayStatsModal();
+}
+
+function replaceColors(cpuWord) {
+    //let cpuWordBracket = "[" + cpuWord + "]";
+    //let cpuWordRegex =  new RegExp(cpuWordBracket + "(?!([^<]+)?>)","g");
+    //console.log(cpuWordRegex);
+    for (let i = 0;i < cpuWord.length;i++)
+    {
+        let str = $("#userGuess").html();
+        console.log(str)
+        let res;
+        let cpuWordRegex =  new RegExp(cpuWord[i] + "(?!([^<]+)?>)","g");
+        res = str.replace(cpuWordRegex, '<span style="color:green">' + cpuWord[i] + '</span>');
+        $("#userGuess").html(res);
+    }
 }
 
 /*
