@@ -16,7 +16,7 @@ var changeColor = function (letter) {
 function replaceColor(letter, color) {
     var reg = new RegExp(letter + "(?!([^<]+)?>)","g");
     console.log(reg);
-    var str = document.getElementById("demo").innerHTML;
+    var str = document.getElementById("humanCanvas").innerHTML;
     var res = str.replace(reg, '<span style="color: '+color+';">' + letter + '</span>');
-    document.getElementById("demo").innerHTML = res;
+    document.getElementById("humanCanvas").innerHTML = res;
 };

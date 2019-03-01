@@ -62,16 +62,16 @@ function letterSearch(letter, array) {
 function addWordToCanvas(text) {
     //Setting up the canvas and the text to be black
     var canvas = document.getElementById("humanCanvas");
-    var ctx = canvas.getContext("2d");
-    ctx.font = "20px Comic Sans MS";
-    ctx.fillStyle = "black";
-    ctx.textAlign = "center";
     //logistics for placing the words in the canvas
     var xposition = currentx + length;
     xposition = xposition * 4;
     // if it is the first time entering it is an intital word
     if (initial == 0) {
-        ctx.fillText("YOUR WORD: " + text, xposition, currenty);
+        var textNode = document.createTextNode("YOUR WORD: "+text);
+        var br = document.createElement("br");
+        canvas.appendChild(textNode);
+        canvas.appendChild(br);
+
         humanWord = text;
         cpuSelectWord();
         //User's word defined
@@ -97,13 +97,19 @@ function addWordToCanvas(text) {
             }
         }
         // display "guess - num"
-        ctx.fillText("GUESS: " + text + " - " + numLetters, xposition, currenty);
+         var textNode = document.createTextNode("GUESS: " + text + " - " + numLetters);
+        var br = document.createElement("br");
+        canvas.appendChild(textNode);
+        canvas.appendChild(br);
         if(text.localeCompare(compWord) == 0){
             // you win
             currenty += 40;
             winner = sessionName;
             insertGameRequest(userWord, compWord, userGuesses, cpuGuesses, winner);
-            ctx.fillText("YOU WIN!", xposition, currenty);
+            var textNode = document.createTextNode("YOU WIN!");
+            var br = document.createElement("br");
+            canvas.appendChild(textNode);
+            canvas.appendChild(br);
             var btn = document.getElementById('humanBtn');
             btn.style.display = "none";
         }
