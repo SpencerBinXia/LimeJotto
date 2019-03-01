@@ -101,6 +101,15 @@ function addWordToCanvas(text) {
         var br = document.createElement("br");
         canvas.appendChild(textNode);
         canvas.appendChild(br);
+        /*
+            check if letters in this new text have a color if so replace it with that color
+         */
+        for(var j =0; j< text.length;j++){
+            if (letterToColor[letterToColorKey(text[j].toUpperCase())]!=null){
+                replaceColor(text[j],letterToColor[letterToColorKey(text[j].toUpperCase())]);
+
+            }
+        }
         if(text.localeCompare(compWord) == 0){
             // you win
             currenty += 40;
