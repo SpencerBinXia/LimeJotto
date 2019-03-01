@@ -71,8 +71,11 @@
         <!--Player controls area-->
         <div class="column" style="width:500px">
             <h2 id="humanHeader" th:value="${session.username}" th:text="${session.username}" ></h2>
+            <!--<div class = "canvasContainer">-->
+                <!--<canvas id = "humanCanvas" class="playerCanvas"  width="5000px" height="5000px"></canvas>-->
+            <!--</div>-->
             <div class = "canvasContainer">
-                <canvas id = "humanCanvas" class="playerCanvas"  width="5000px" height="5000px"></canvas>
+                
             </div>
             <h5 id ="humanLbl">Enter your word (lowercase):</h5>
             <input id = "humanTxt" type = "text" name = "humanTxt">
@@ -124,8 +127,6 @@
             <div style="margin: auto; width: 40%">
                 <button id="restartBtn" onclick="restart()" class="btn btn-primary btn-xl rounded-pill mt-5 text-white">Restart</button>
             </div>
-            <p id="demo">Mr Blue has a blue house and a blue car.</p>
-            <button onclick="replaceColor()">Try it</button>
         </div>
         <!--AI area-->
         <div class="column">
