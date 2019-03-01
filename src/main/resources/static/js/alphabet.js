@@ -10,14 +10,14 @@ var changeColor = function (letter) {
     letter.style.color = colors[letter.colorIdx++ % colors.length];
     var myID = $(letter).attr("id");
     myID.toString();
-    replaceColor(myID);
+    replaceColor(myID, letter.style.color);
 };
 
-function replaceColor(letter) {
+function replaceColor(letter, color) {
     var reg = new RegExp(letter + "(?!([^<]+)?>)","g");
     console.log(reg);
     var str = document.getElementById("demo").innerHTML;
-    var res = str.replace(reg, '<span style="color: #CC0000;">' + letter + '</span>');
+    var res = str.replace(reg, '<span style="color: '+color+';">' + letter + '</span>');
     document.getElementById("demo").innerHTML = res;
 };
 
