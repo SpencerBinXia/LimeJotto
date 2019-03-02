@@ -5,12 +5,19 @@
 
 let colors = ["#CC0000", "#00CC00", "#000000"];
 
+
+function key(letter) {
+    return letter.charCodeAt(0);
+}
 var changeColor = function (letter) {
     letter.colorIdx = letter.colorIdx || 0;
     letter.style.color = colors[letter.colorIdx++ % colors.length];
+    letterToColor[letterToColorKey(letter.innerHTML)] = letter.style.color;
     var myID = $(letter).attr("id");
     myID.toString();
+    console.log(letterToColor);
     replaceColor(myID, letter.style.color);
+
 };
 
 function replaceColor(letter, color) {
