@@ -226,15 +226,15 @@ function updateCPUInitial() {
 function updateCPUGuess(text){
     //Setting up the canvas and the text to be black
     var canvas = document.getElementById("cpuCanvas");
-    var ctx = canvas.getContext("2d");
-    ctx.font = "20px Comic Sans MS";
-    ctx.fillStyle = "black";
-    ctx.textAlign = "center";
+
 
 
     var xposition = currentx + length;
     xposition = xposition * 4;
-    ctx.fillText("GUESS: " + text, xposition, cpuY);
+    var textNode = document.createTextNode("GUESS: " + text);
+    var br = document.createElement("br");
+    canvas.appendChild(textNode);
+    canvas.appendChild(br);
     cpuX += 0;
     cpuY += 40;
     if (text == humanWord){
@@ -242,6 +242,7 @@ function updateCPUGuess(text){
         // cpuY += 40;
         winner = "CPU";
         insertGameRequest(userWord, compWord, userGuesses, cpuGuesses, winner);
+        var textNode = document.createTextNode("CPU")
         ctx.fillText("CPU WIN!", xposition, cpuY);
         cpuY += 40;
         ctx.fillText("CPU WORD: " + compWord, xposition, cpuY);
