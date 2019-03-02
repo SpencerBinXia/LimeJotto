@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th=http://www.thymeleaf.org>
 
 <head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="vendor/jquery/jquery.min.js"></script>
     <script>
         <!-- Adds thymeleaf session.username as a global variable to be used in external JS files -->
@@ -70,7 +70,7 @@
 <header class="masthead">
     <div class="game">
         <!--Player controls area-->
-        <div class="column" style="width:500px">
+        <div id = "c1" class="column" >
             <h2 id="humanHeader" th:value="${session.username}" th:text="${session.username}" ></h2>
             <!--<div class = "canvasContainer">-->
                 <!--<canvas id = "humanCanvas" class="playerCanvas"  width="5000px" height="5000px"></canvas>-->
@@ -125,7 +125,7 @@
                 </tr>
             </table>
             <br>
-            <div style="margin: auto; width: 40%">
+            <div style="margin: auto; width: auto">
                 <button id="restartBtn" onclick="restart()" class="btn btn-primary btn-xl rounded-pill mt-5 text-white">Restart</button>
             </div>
         </div>
@@ -134,7 +134,7 @@
             <div id ="superContainer" style="float: right">
                 <h2 id="cpuHeader" style="text-align: right" >Computer</h2>
                 <div id = "cpuContainer">
-                    <div id="cpuCanvas"  class="canvasContainer"></div>
+
                 </div>
             </div>
         </div>
