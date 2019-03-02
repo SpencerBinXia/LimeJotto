@@ -250,20 +250,33 @@ function updateCPUGuess(text){
     }
 
     var textNode = document.createTextNode("GUESS: ");
-    // var br = document.createElement("<span style=\"color: "+color1+";\">" + letter1 + "</span>");
-    var l1 = $('<span />').css("color", color1);
-    l1.html(letter1);
-    // var br1 = document.createElement("<span style=\"color: "+color2+";\">" + letter2 + "</span>");
-    // var br2 = document.createElement("<span style=\"color: "+color3+";\">" + letter3 + "</span>");
-    // var br3 = document.createElement("<span style=\"color: "+color4+";\">" + letter4 + "</span>");
-    // var br4 = document.createElement("<span style=\"color: "+color5+";\">" + letter5 + "</span>");
+    var br = document.createElement("span");
+    var brT =  document.createTextNode(letter1);
+    br.style.color = color1;
+    br.appendChild(brT);
+    var br1 = document.createElement("span");
+    var br1T =  document.createTextNode(letter2);
+    br1.style.color = color2;
+    br1.appendChild(br1T);
+    var br2 = document.createElement("span");
+    var br2T =  document.createTextNode(letter3);
+    br2.style.color = color3;
+    br2.appendChild(br2T);
+    var br3 = document.createElement("span");
+    var br3T =  document.createTextNode(letter4);
+    br3.style.color = color4;
+    br3.appendChild(br3T);
+    var br4 = document.createElement("span");
+    var br4T =  document.createTextNode(letter5);
+    br4.style.color = color5;
+    br4.appendChild(br4T);
     var br5 = document.createElement("br");
     canvas.appendChild(textNode);
-    canvas.append(l1);
-    // canvas.appendChild(br1);
-    // canvas.appendChild(br2);
-    // canvas.appendChild(br3);
-    // canvas.appendChild(br4);
+    canvas.appendChild(br);
+    canvas.appendChild(br1);
+    canvas.appendChild(br2);
+    canvas.appendChild(br3);
+    canvas.appendChild(br4);
     canvas.appendChild(br5);
     if (text == humanWord){
         // you win
