@@ -62,16 +62,16 @@ function letterSearch(letter, array) {
 function addWordToCanvas(text) {
     //Setting up the canvas and the text to be black
     var canvas = document.getElementById("humanCanvas");
-    var ctx = canvas.getContext("2d");
-    ctx.font = "20px Comic Sans MS";
-    ctx.fillStyle = "black";
-    ctx.textAlign = "center";
     //logistics for placing the words in the canvas
     var xposition = currentx + length;
     xposition = xposition * 4;
     // if it is the first time entering it is an intital word
     if (initial == 0) {
-        ctx.fillText("YOUR WORD: " + text, xposition, currenty);
+        var textNode = document.createTextNode("YOUR WORD: "+text);
+        var br = document.createElement("br");
+        canvas.appendChild(textNode);
+        canvas.appendChild(br);
+
         humanWord = text;
         cpuSelectWord();
         //User's word defined
@@ -97,13 +97,19 @@ function addWordToCanvas(text) {
             }
         }
         // display "guess - num"
-        ctx.fillText("GUESS: " + text + " - " + numLetters, xposition, currenty);
+         var textNode = document.createTextNode("GUESS: " + text + " - " + numLetters);
+        var br = document.createElement("br");
+        canvas.appendChild(textNode);
+        canvas.appendChild(br);
         if(text.localeCompare(compWord) == 0){
             // you win
             currenty += 40;
             winner = sessionName;
             insertGameRequest(userWord, compWord, userGuesses, cpuGuesses, winner);
-            ctx.fillText("YOU WIN!", xposition, currenty);
+            var textNode = document.createTextNode("YOU WIN!");
+            var br = document.createElement("br");
+            canvas.appendChild(textNode);
+            canvas.appendChild(br);
             var btn = document.getElementById('humanBtn');
             btn.style.display = "none";
         }
@@ -188,12 +194,12 @@ function cpuGuess(regex){
 function updateCPUInitial() {
     if (req.readyState == 4 && req.status == 200) {
         //Setting up the canvas and the text to be black
-        var canvas = document.getElementById("cpuCanvas");
-        var ctx = canvas.getContext("2d");
-        ctx.font = "20px Comic Sans MS";
-        ctx.fillStyle = "black";
-        ctx.textAlign = "center";
+        var canvas = document.getElementById("cpuContainer");
         compWord = req.responseText;
+        var textNode = document.createTextNode("CPU WORD: "+compWord);
+        var br = document.createElement("br");
+        canvas.appendChild(textNode);
+        canvas.appendChild(br);
         console.log(compWord);
         var xposition = currentx + length;
         xposition = xposition * 4;
@@ -209,26 +215,57 @@ function updateCPUInitial() {
  */
 function updateCPUGuess(text){
     //Setting up the canvas and the text to be black
-    var canvas = document.getElementById("cpuCanvas");
-    var ctx = canvas.getContext("2d");
-    ctx.font = "20px Comic Sans MS";
-    ctx.fillStyle = "black";
-    ctx.textAlign = "center";
+    var canvas = document.getElementById("cpuContainer");
+    var color1, color2, color3, color4, color5;
+    var letter1, letter2, letter3, letter4, letter5;
 
+    // determine colors of letters in guess
+    var i;
+    for (i = 0; i < 5; i++) {
+        if (compareLetter(text, humanWord, i) == 1) {
+            // green letter
+            if(i == 0){color1="green"; letter1=text[0]}
+            if(i == 1){color2="green"; letter2=text[1]}
+            if(i == 2){color3="green"; letter3=text[2]}
+            if(i == 3){color4="green"; letter4=text[3]}
+            if(i == 4){color5="green"; letter5=text[4]}
+        } else {
+            // red letter
+            if(i == 0){color1="red"; letter1=text[0]}
+            if(i == 1){color2="red"; letter2=text[1]}
+            if(i == 2){color3="red"; letter3=text[2]}
+            if(i == 3){color4="red"; letter4=text[3]}
+            if(i == 4){color5="red"; letter5=text[4]}
+        }
+    }
 
-    var xposition = currentx + length;
-    xposition = xposition * 4;
-    ctx.fillText("GUESS: " + text, xposition, cpuY);
-    cpuX += 0;
-    cpuY += 40;
+    var textNode = document.createTextNode("GUESS: ");
+    // var br = document.createElement("<span style=\"color: "+color1+";\">" + letter1 + "</span>");
+    var l1 = $('<span />').css("color", color1);
+    l1.html(letter1);
+    // var br1 = document.createElement("<span style=\"color: "+color2+";\">" + letter2 + "</span>");
+    // var br2 = document.createElement("<span style=\"color: "+color3+";\">" + letter3 + "</span>");
+    // var br3 = document.createElement("<span style=\"color: "+color4+";\">" + letter4 + "</span>");
+    // var br4 = document.createElement("<span style=\"color: "+color5+";\">" + letter5 + "</span>");
+    var br5 = document.createElement("br");
+    canvas.appendChild(textNode);
+    canvas.append(l1);
+    // canvas.appendChild(br1);
+    // canvas.appendChild(br2);
+    // canvas.appendChild(br3);
+    // canvas.appendChild(br4);
+    canvas.appendChild(br5);
     if (text == humanWord){
         // you win
         // cpuY += 40;
         winner = "CPU";
         insertGameRequest(userWord, compWord, userGuesses, cpuGuesses, winner);
-        ctx.fillText("CPU WIN!", xposition, cpuY);
-        cpuY += 40;
-        ctx.fillText("CPU WORD: " + compWord, xposition, cpuY);
+        var textNode = document.createTextNode("CPU WIN!");
+        var br = document.createElement("br");
+        var textNode2 = document.createTextNode("CPU WORD: " + compWord);
+        canvas.appendChild(textNode);
+        canvas.appendChild(br);
+        canvas.appendChild(textNode2);
         var btn = document.getElementById('humanBtn');
         btn.style.display = "none";
     }
