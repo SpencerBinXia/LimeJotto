@@ -206,7 +206,7 @@ function updateCPUInitial() {
         //Setting up the canvas and the text to be black
         var canvas = document.getElementById("cpuContainer");
         compWord = req.responseText;
-        var textNode = document.createTextNode("CPU WORD: "+compWord);
+        var textNode = document.createTextNode("CPU WORD: ?????");
         var br = document.createElement("br");
         canvas.appendChild(textNode);
         canvas.appendChild(br);
