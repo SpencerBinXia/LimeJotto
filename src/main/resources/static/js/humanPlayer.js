@@ -205,15 +205,19 @@ function updateCPUInitial() {
     if (req.readyState == 4 && req.status == 200) {
         //Setting up the canvas and the text to be black
         var canvas = document.getElementById("cpuCanvas");
-        var ctx = canvas.getContext("2d");
-        ctx.font = "20px Comic Sans MS";
-        ctx.fillStyle = "black";
-        ctx.textAlign = "center";
+        //var ctx = canvas.getContext("2d");
+        // ctx.font = "20px Comic Sans MS";
+        // ctx.fillStyle = "black";
+        // ctx.textAlign = "center";
         compWord = req.responseText;
         console.log(compWord);
-        var xposition = currentx + length;
-        xposition = xposition * 4;
-        ctx.fillText("CPU WORD: ?????", xposition, cpuY);
+        // var xposition = currentx + length;
+        // xposition = xposition * 4;
+        var textNode = document.createTextNode("CPU WORD: ?????");
+        // ctx.fillText("CPU WORD: ?????", xposition, cpuY);
+        canvas.appendChild(textNode);
+        var br = document.createElement("br");
+        canvas.appendChild(br);
 
     }
     cpuX += 0;
@@ -223,33 +227,42 @@ function updateCPUInitial() {
 /*
     This function updates the cpu canvas once we get a guess word from the db
  */
-function updateCPUGuess(text){
+function updateCPUGuess(text) {
     //Setting up the canvas and the text to be black
     var canvas = document.getElementById("cpuCanvas");
+    // var ctx = canvas.getContext("2d");
+    // ctx.font = "20px Comic Sans MS";
+    // ctx.fillStyle = "black";
+    // ctx.textAlign = "center";
 
 
-
-    var xposition = currentx + length;
-    xposition = xposition * 4;
+    // var xposition = currentx + length;
+    // xposition = xposition * 4;
     var textNode = document.createTextNode("GUESS: " + text);
     var br = document.createElement("br");
     canvas.appendChild(textNode);
     canvas.appendChild(br);
-    cpuX += 0;
-    cpuY += 40;
-    if (text == humanWord){
+    // ctx.fillText("GUESS: " + text, xposition, cpuY);
+    // cpuX += 0;
+    // cpuY += 40;
+    if (text == humanWord) {
         // you win
         // cpuY += 40;
         winner = "CPU";
         insertGameRequest(userWord, compWord, userGuesses, cpuGuesses, winner);
-        var textNode = document.createTextNode("CPU")
-        ctx.fillText("CPU WIN!", xposition, cpuY);
+        // ctx.fillText("CPU WIN!", xposition, cpuY);
+        var textNode = document.createTextNode("CPU WIN!");
+        var br = document.createElement("br");
+        canvas.appendChild(textNode);
+        canvas.appendChild(br);
         cpuY += 40;
-        ctx.fillText("CPU WORD: " + compWord, xposition, cpuY);
+        var textNodeTwo = document.createTextNode("CPU WORD: " + compWord);
+        //ctx.fillText("CPU WORD: " + compWord, xposition, cpuY);
+        canvas.appendChild(textNodeTwo);
+        canvas.appendChild(br);
         var btn = document.getElementById('humanBtn');
         btn.style.display = "none";
     }
-
 }
 
 
