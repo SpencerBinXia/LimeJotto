@@ -87,7 +87,14 @@ function showStats(element) {
         numCPULetters.push(numLetters);
     }
     $.each(userGuesses, function(index, userGuess) {
-        bodyString += ('<tr><td class="userGuess"><span style="color:red">'+userGuess+'</span>: ' + numHumLetters[index] +'</td><td class="cpuGuess"><span style="color:red">'+cpuGuesses[index]+'</span>: ' + numCPULetters[index] + '</td></tr>');
+        if (!cpuGuesses[index])
+        {
+            bodyString += ('<tr><td class="userGuess"><span style="color:red">'+userGuess+'</span>: ' + numHumLetters[index] +'</td><td class="cpuGuess"></td></tr>');
+        }
+        else
+        {
+            bodyString += ('<tr><td class="userGuess"><span style="color:red">'+userGuess+'</span>: ' + numHumLetters[index] +'</td><td class="cpuGuess"><span style="color:red">'+cpuGuesses[index]+'</span>: ' + numCPULetters[index] + '</td></tr>');
+        }
     });
     $('.statsModalTable tbody').html(bodyString);
     $('.userGuess').each( function(){
