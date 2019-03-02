@@ -234,18 +234,18 @@ function updateCPUGuess(text){
     for (i = 0; i < 5; i++) {
         if (compareLetter(text, humanWord, i) == 1) {
             // green letter
-            if(i == 0){color1="green"; letter1=text[0]}
-            if(i == 1){color2="green"; letter2=text[1]}
-            if(i == 2){color3="green"; letter3=text[2]}
-            if(i == 3){color4="green"; letter4=text[3]}
-            if(i == 4){color5="green"; letter5=text[4]}
+            if(i == 0){color1="#00CC00"; letter1=text[0]}
+            if(i == 1){color2="#00CC00"; letter2=text[1]}
+            if(i == 2){color3="#00CC00"; letter3=text[2]}
+            if(i == 3){color4="#00CC00"; letter4=text[3]}
+            if(i == 4){color5="#00CC00"; letter5=text[4]}
         } else {
             // red letter
-            if(i == 0){color1="red"; letter1=text[0]}
-            if(i == 1){color2="red"; letter2=text[1]}
-            if(i == 2){color3="red"; letter3=text[2]}
-            if(i == 3){color4="red"; letter4=text[3]}
-            if(i == 4){color5="red"; letter5=text[4]}
+            if(i == 0){color1="#CC0000"; letter1=text[0]}
+            if(i == 1){color2="#CC0000"; letter2=text[1]}
+            if(i == 2){color3="#CC0000"; letter3=text[2]}
+            if(i == 3){color4="#CC0000"; letter4=text[3]}
+            if(i == 4){color5="#CC0000"; letter5=text[4]}
         }
     }
 
