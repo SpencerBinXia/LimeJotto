@@ -30,7 +30,7 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses, winner)
 /*
     generate key for hashmap
  */
-function key(char){
+function letterToColorKey(char){
     return char.charCodeAt(0);
 }
 /*

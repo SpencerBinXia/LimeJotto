@@ -7,6 +7,7 @@
     <script>
         <!-- Adds thymeleaf session.username as a global variable to be used in external JS files -->
         const sessionName = "[[${session.username}]]";
+        var letterToColor = {};
     </script>
     <script src="js/pastGames.js"></script>
     <script src="js/wordSearch.js"></script>
@@ -133,7 +134,7 @@
             <div id ="superContainer" style="float: right">
                 <h2 id="cpuHeader" style="text-align: right" >Computer</h2>
                 <div id = "cpuContainer">
-                    <canvas id="cpuCanvas"  width="5000px" height="5000px"></canvas>
+
                 </div>
             </div>
         </div>
