@@ -417,7 +417,7 @@ header.masthead .bg-circle-4 {
     animation-duration: 0.4s;
     overflow: scroll;
 }
-@media (min-width: 1281px) {
+@media (min-width: 1800px) {
     #c1{
         width: 500px;
     }
