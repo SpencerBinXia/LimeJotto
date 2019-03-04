@@ -429,7 +429,7 @@ header.masthead .bg-circle-4 {
         width: 33.33%;
     }
 }
-@media (max-width: 414px) {
+@media (max-width: 900px) {
     .modal {
         display: none;
         position: fixed;
