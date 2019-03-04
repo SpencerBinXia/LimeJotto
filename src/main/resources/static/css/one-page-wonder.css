@@ -31,8 +31,9 @@ h6 {
 }
 
 .column {
+    padding-left: 5em;
     float: left;
-    width: 33.33%;
+    width: auto;
 }
 .game {
     margin-right: 6%;
@@ -346,8 +347,8 @@ header.masthead .bg-circle-4 {
     color: white;
 }
 .canvasContainer{
-    width: 400px;
-    height: 675px;
+    width: 300px;
+    height: 300px;
     overflow: auto;
     border: 1px solid;
     background-color: white;
@@ -356,8 +357,8 @@ header.masthead .bg-circle-4 {
     background-color: white;
 }
 #cpuContainer{
-    width: 400px;
-    height: 675px;
+    width: 300px;
+    height: 300px;
     overflow: auto;
     border: 1px solid;
     background-color: white;
@@ -416,5 +417,77 @@ header.masthead .bg-circle-4 {
     animation-duration: 0.4s;
     overflow: scroll;
 }
-
+@media (min-width: 1281px) {
+    #c1{
+        width: 500px;
+    }
+    #cpuContainer{
+        width: 400px;
+        height: 675px;
+        overflow: auto;
+        border: 1px solid;
+        background-color: white;
+    }
+    .canvasContainer{
+        width: 400px;
+        height: 675px;
+        overflow: auto;
+        border: 1px solid;
+        background-color: white;
+    }
+    .column {
+        float: left;
+        width: 33.33%;
+    }
+}
+@media (max-width: 414px) {
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        top: 0;
+        width: auto;
+        height: 100%;
+        overflow: auto;
+    }
+    #cpuContainer{
+        width: 200px;
+        height: 300px;
+        overflow: auto;
+        border: 1px solid;
+        background-color: white;
+    }
+    .canvasContainer{
+        width: 200px;
+        height: 300px;
+        overflow: auto;
+        border: 1px solid;
+        background-color: white;
+    }
+}
+@media (max-width: 320px) {
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        top: 0;
+        width: auto;
+        height: 100%;
+        overflow: auto;
+    }
+    #cpuContainer{
+        width: 175px;
+        height: 300px;
+        overflow: auto;
+        border: 1px solid;
+        background-color: white;
+    }
+    .canvasContainer{
+        width: 175px;
+        height: 300px;
+        overflow: auto;
+        border: 1px solid;
+        background-color: white;
+    }
+}
 
