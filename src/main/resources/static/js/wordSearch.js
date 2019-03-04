@@ -1,3 +1,4 @@
+//Variables
 
 var isFirstWord = 1;
 var illegalWord;

@@ -27,7 +27,10 @@ public class profileController {
     @GetMapping
     public String home(Model model, HttpSession session)
     {
-        System.out.println((String)session.getAttribute("username"));
+        if (session.getAttribute("username") == null)
+        {
+            return "redirect:/";
+        }
         List<Game> pastGames = gservice.findPastGames((String)session.getAttribute("username"));
         for (Game game: pastGames)
         {

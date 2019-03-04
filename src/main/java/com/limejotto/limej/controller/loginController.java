@@ -21,7 +21,7 @@ public class loginController {
     private loginRegisterService service;
 
     @RequestMapping(method= RequestMethod.POST)
-    public String registerUser(@ModelAttribute RegInfo loginfo, HttpSession session, ModelMap model)
+    public String logUser(@ModelAttribute RegInfo loginfo, HttpSession session)
     {
         boolean loginBool = service.loginUser(loginfo);
         if (loginBool)

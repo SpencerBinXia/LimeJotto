@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/")
 public class IndexController {
@@ -15,10 +17,17 @@ public class IndexController {
         this method is mapped to the front page and returns index.html
      */
     @GetMapping
-    public String home(Model model)
+    public String home(Model model, HttpSession session)
     {
-        model.addAttribute("loginfo", new RegInfo());
-        return "index";
+        if (session.getAttribute("username") != null)
+        {
+            return "redirect:/game";
+        }
+        else
+        {
+            model.addAttribute("loginfo", new RegInfo());
+            return "index";
+        }
     }
 
 
