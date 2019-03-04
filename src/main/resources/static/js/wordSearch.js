@@ -1,7 +1,12 @@
+//Variables
 
 var isFirstWord = 1;
 var illegalWord;
 
+/*
+ *  Function called inside wordLookup on a successful AJAX request
+ *  that checks if the retrieved word has 5 unique letters.
+ */
 function letterCheck(word) {
     var i, j;
     for (i = 0; i < 5; i++) {

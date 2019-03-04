@@ -34,7 +34,14 @@ public class gameController {
     @RequestMapping(method=RequestMethod.GET)
     public String sendUser(HttpSession session)
     {
-        return "game";
+        if (session.getAttribute("username") == null)
+        {
+            return "redirect:/";
+        }
+        else
+        {
+            return "game";
+        }
     }
 
 }

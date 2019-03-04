@@ -4,14 +4,10 @@ import org.json.simple.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import com.limejotto.limej.service.wordService;
 import com.limejotto.limej.object.Word;
-
-//import javax.servlet.http.HttpSession;
 
 /*
  * Controller for word lookup in the database. Responds with 1 if the word is found, and 0 if the word is not found.
@@ -27,7 +23,6 @@ public class isWordController {
     @RequestMapping(method=RequestMethod.POST, produces= "application/json")
     public JSONObject wordLookup(@RequestBody Word userWord)
     {
-        System.out.println(userWord.getWord());
         JSONObject message = new JSONObject();
         if (wservice.wordLookup(userWord.getWord()))
         {

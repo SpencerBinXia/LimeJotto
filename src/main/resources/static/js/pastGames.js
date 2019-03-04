@@ -1,11 +1,13 @@
 
+/*
+ *  Function that inserts a new game into the server-side Game database.
+ *  This function converts the userGuesses and cpuGuesses variables from
+ *  humanPlayer.js into JSON format and sends them to the /pastGame controller.
+ */
 function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses, winner)
 {
     var userGuessString = JSON.stringify(userGuesses);
     var cpuGuessString = JSON.stringify(cpuGuesses);
-    console.log(userWord);
-    console.log(cpuWord);
-    console.log(sessionName);
     var strippedUserGuesses = userGuessString.replace(/['\[\]"]+/g, '');
     var strippedCpuGuesses = cpuGuessString.replace(/['\[\]"]+/g, '');
 
@@ -33,25 +35,13 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses, winner)
 function letterToColorKey(char){
     return char.charCodeAt(0);
 }
+
 /*
-    calculate which letters are correct by comparing the
-    cpuword and human word and put them in a hashmap which will later be used to compare and color code letters
- */
-function calculateCorrectLetters(element){
-    var index = element.rowIndex;
-     var lettersCorrect = {};
-     var cpuWord= cpuPastWords[index];
-     var humanWord = userPastWords[index];
-        console.log(cpuWord);
-    for (var i =0; i<5; i++) {
-        if (humanWord[i]==cpuWord[i]){
-            lettersCorrect[key(humanWord[i])] = humanWord[i];
-        }
-    }
-     showStats(index)
-}
-/*
-    this function currently should log the guesses of the game that is clicked on in  the table
+ *  Function for retrieving all of the guesses made in a game
+ *  selected by the user by clicking on a row in the Past Games table.
+ *  The guesses are converted to an array format and dynamically added to a pop-up modal.
+ *  In addition, the letters inside the guesses are colored depending on which letters
+ *  correctly match up with the user's and CPU's words.
  */
 function showStats(element) {
     var index = element.rowIndex-1;
@@ -60,14 +50,8 @@ function showStats(element) {
     var bodyString = '';
     var numHumLetters = [];
     var numCPULetters = [];
-    console.log(humanWord);
-    console.log(cpuWord);
-    console.log(userPastGuesses[index]);
-    console.log(cpuPastGuesses[index]);
     var userGuesses = userPastGuesses[index].split(",");
     var cpuGuesses = cpuPastGuesses[index].split(",");
-    console.log(userGuesses);
-    console.log(cpuGuesses);
     for (let y = 0;y<userGuesses.length;y++){
         let numLetters = 0;
         for (let i = 0; i < 5; i++) {
@@ -93,7 +77,8 @@ function showStats(element) {
         }
         else
         {
-            bodyString += ('<tr><td class="userGuess"><span style="color:red">'+userGuess+'</span>: ' + numHumLetters[index] +'</td><td class="cpuGuess"><span style="color:red">'+cpuGuesses[index]+'</span>: ' + numCPULetters[index] + '</td></tr>');
+            bodyString += ('<tr><td class="userGuess"><span style="color:red">'+userGuess+'</span>: ' + numHumLetters[index] +'</td>' +
+                           '<td class="cpuGuess"><span style="color:red">'+cpuGuesses[index]+'</span>: ' + numCPULetters[index] + '</td></tr>');
         }
     });
     $('.statsModalTable tbody').html(bodyString);
@@ -115,44 +100,8 @@ function showStats(element) {
             $(this).html(res);
         }
     });
-    //replaceColors(cpuWord);
     displayStatsModal();
 }
-
-function replaceColors(cpuWord) {
-    //let cpuWordBracket = "[" + cpuWord + "]";
-    //let cpuWordRegex =  new RegExp(cpuWordBracket + "(?!([^<]+)?>)","g");
-    //console.log(cpuWordRegex);
-    for (let i = 0;i < cpuWord.length;i++)
-    {
-        let str = $("#userGuess").html();
-        console.log(str)
-        let res;
-        let cpuWordRegex =  new RegExp(cpuWord[i] + "(?!([^<]+)?>)","g");
-        res = str.replace(cpuWordRegex, '<span style="color:green">' + cpuWord[i] + '</span>');
-        $("#userGuess").html(res);
-    }
-}
-
-/*
-    this function currently should log the guesses of the game that is clicked on in  the table
-function showStats(index) {
-    var userGuesses = userPastGuesses[index];
-    for (var x = 0; x<userGuesses.length;x++){
-        console.log(userGuesses[x]);
-    }
-
-}
-*/
-
-
-
-/*
-function showStats() {
-    displayStatsModal();
-
-}
-*/
 
 function compareLetter(guess, compWord, index) {
     for (let i = 0; i < 5; i++) {

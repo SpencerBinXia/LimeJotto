@@ -14,10 +14,10 @@ import com.limejotto.limej.object.Game;
 
 import java.time.Clock;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.List;
-import java.util.ArrayList;
 
+/*
+ *  Controller for inserting a completed game into the database.
+ */
 @Controller
 @RequestMapping("/pastGame")
 @ResponseBody
@@ -30,12 +30,6 @@ public class pastGameController {
     public JSONObject wordLookup(@RequestBody Game playedGame)
     {
         playedGame.setGameTime(LocalDateTime.now(Clock.systemUTC()));
-        System.out.println(playedGame.getGameTime());
-        System.out.println(playedGame.getUsername());
-        System.out.println(playedGame.getUserWord());
-        System.out.println(playedGame.getCpuWord());
-        System.out.println(playedGame.getUserGuesses());
-        System.out.println(playedGame.getCpuGuesses());
 
         gservice.insertGameService(playedGame);
         JSONObject message = new JSONObject();
