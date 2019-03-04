@@ -8,6 +8,9 @@ import com.limejotto.limej.repository.gameRepo;
 
 import java.util.List;
 
+/*
+ *  Service for operations involving the Game repository.
+ */
 @Service
 public class pastGameService {
 

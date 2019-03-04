@@ -15,14 +15,12 @@ var changeColor = function (letter) {
     letterToColor[letterToColorKey(letter.innerHTML)] = letter.style.color;
     var myID = $(letter).attr("id");
     myID.toString();
-    console.log(letterToColor);
     replaceColor(myID, letter.style.color);
 
 };
 
 function replaceColor(letter, color) {
     var reg = new RegExp(letter + "(?!([^<]+)?>)","g");
-    console.log(reg);
     var str = document.getElementById("humanCanvas").innerHTML;
     var res = str.replace(reg, '<span style="color: '+color+';">' + letter + '</span>');
     document.getElementById("humanCanvas").innerHTML = res;

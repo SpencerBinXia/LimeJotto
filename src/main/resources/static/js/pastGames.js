@@ -1,11 +1,13 @@
 
+/*
+ *  Function that inserts a new game into the server-side Game database.
+ *  This function converts the userGuesses and cpuGuesses variables from
+ *  humanPlayer.js into JSON format and sends them to the /pastGame controller.
+ */
 function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses, winner)
 {
     var userGuessString = JSON.stringify(userGuesses);
     var cpuGuessString = JSON.stringify(cpuGuesses);
-    console.log(userWord);
-    console.log(cpuWord);
-    console.log(sessionName);
     var strippedUserGuesses = userGuessString.replace(/['\[\]"]+/g, '');
     var strippedCpuGuesses = cpuGuessString.replace(/['\[\]"]+/g, '');
 
@@ -28,7 +30,18 @@ function insertGameRequest(userWord, cpuWord, userGuesses, cpuGuesses, winner)
 }
 
 /*
-    this function currently should log the guesses of the game that is clicked on in  the table
+    generate key for hashmap
+ */
+function letterToColorKey(char){
+    return char.charCodeAt(0);
+}
+
+/*
+ *  Function for retrieving all of the guesses made in a game
+ *  selected by the user by clicking on a row in the Past Games table.
+ *  The guesses are converted to an array format and dynamically added to a pop-up modal.
+ *  In addition, the letters inside the guesses are colored depending on which letters
+ *  correctly match up with the user's and CPU's words.
  */
 function showStats(element) {
     var index = element.rowIndex-1;

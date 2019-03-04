@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.limejotto.limej.repository.userRepo;
 
+/*
+ *  Service for operations involving the User repository.
+ */
 @Service
 public class loginRegisterService {
 
@@ -22,7 +25,6 @@ public class loginRegisterService {
             newUser.setUsername(reg.getUsername());
             newUser.setPassword(reg.getPassword());
             urepo.regUser(newUser);
-            //session.setAttribute("currentUser", newUser);
             return true;
         }
         return false;

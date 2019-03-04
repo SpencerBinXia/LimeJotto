@@ -19,6 +19,9 @@ import java.sql.SQLException;
 
 import com.limejotto.limej.object.Game;
 
+/*
+ *  Repository for past games that allows for inserting into and querying for games from the database.
+ */
 @Repository
 public class gameRepo {
 

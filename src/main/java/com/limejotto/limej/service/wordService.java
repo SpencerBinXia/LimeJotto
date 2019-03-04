@@ -15,7 +15,9 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/*
+ *  Service for operations involving the Word repository.
+ */
 @Service
 public class wordService {
 

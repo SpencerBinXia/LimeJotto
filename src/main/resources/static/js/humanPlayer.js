@@ -98,7 +98,7 @@ function addWordToCanvas(text) {
             }
         }
         // display "guess - num"
-         var textNode = document.createTextNode("GUESS: " + text + " - " + numLetters);
+        var textNode = document.createTextNode("GUESS: " + text + " - " + numLetters);
         var br = document.createElement("br");
         canvas.appendChild(textNode);
         canvas.appendChild(br);
@@ -131,12 +131,6 @@ function addWordToCanvas(text) {
     currentx += 0;
     currenty += 40;
     initial = 1;
-
-    // console.log(userWord);
-    // console.log(compWord);
-    // console.log(userGuesses);
-    // console.log(greenLetters);
-    // console.log(redLetters);
 }
 
 /*
@@ -168,7 +162,6 @@ function  cpuAI() {
             } else {
                 if (letterSearch(text[i], cpuRedLetters) == false) {
                     cpuRedLetters.push(text[i]);
-                    console.log(cpuRedLetters);
                     //makes cpu not as hard to beat because as soon as we find that one letter is not in the word
                     // we break the for loop instead of figuring out every letter that isnt in the word
                     i=5;
@@ -178,7 +171,7 @@ function  cpuAI() {
         cpuGuesses.push(text);
         updateCPUGuess(text);
     }
-    
+
 }
 
 function cpuGenerateRegex() {
@@ -189,7 +182,7 @@ function cpuGenerateRegex() {
     }
     regex+= "%5CW%5D%2B%5Cb";
     cpuGuess(regex);
-    
+
 }
 function cpuGuess(regex){
     var url = "/cpuGuess?cpuGuess="+regex;
@@ -295,6 +288,3 @@ function updateCPUGuess(text){
     }
 
 }
-
-
-
